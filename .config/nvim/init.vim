@@ -95,6 +95,7 @@ let g:coc_global_extensions = [
   \ 'coc-pairs', 
   \ 'coc-spell-checker',
   \ 'coc-json', 
+  \ 'coc-actions',
   \ ]
 "Notes on how to use:
 "Do ':CocCommand snippets.editSnippets' to add custom snippets
