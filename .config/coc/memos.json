@@ -26,7 +26,7 @@
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "f25058b0abe9b31fc39fa29a6424d36a9b3e2d9fe96ca9c77a150a84af90bd93f84d1b4f168f232c4f3cf6b0d111a3f26de3f20b02502fac0d3ec3e05a56540c"
       },
-      "expiry": 1583526869204
+      "expiry": 1583870825033
     },
     "/usr/bin/python.v3": {
       "data": {
@@ -51,7 +51,7 @@
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "3afcb352376cbdfb2937261b10cd7acc22cd67da795decdb6e3b8bf77ed13301725dec3ea30fdf5bd68c9f0a5f3037c706e489c35a047208ad0ef394e009bade"
       },
-      "expiry": 1583526869209
+      "expiry": 1583870825032
     },
     "/usr/local/bin/python3.v3": {
       "data": {
@@ -76,7 +76,7 @@
         "sysPrefix": "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7",
         "fileHash": "5745e5713ab6e1ff340e04389c1a7602be11f3e6d52efe8a4adf0f336c799aa120fe0b242bcea2f4a0c464ee6aa9173ecfa0587f3a699b14fee6d5b67c281dd9"
       },
-      "expiry": 1583526869216
+      "expiry": 1583870825004
     },
     "/usr/bin/python2.7.v3": {
       "data": {
@@ -101,7 +101,7 @@
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "9bcf5f2644a122e21423cec54ac865ba7701ff360ee1b00f35ab67b80a75fbdae77fd426dcb1f87c16d0adf8e8c4671fa86400fc189a1c7f99ab049c2e327159"
       },
-      "expiry": 1583526869435
+      "expiry": 1583870825019
     },
     "/usr/local/bin/python3.7.v3": {
       "data": {
@@ -126,7 +126,7 @@
         "sysPrefix": "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7",
         "fileHash": "f782869a4c35ff367b251044f65195dd97ae3d049374c8391165d8c4561b2de3793dfbade9f3c5211c8ceefa97120bfdcd077b3f71984282415bdfb845fde440"
       },
-      "expiry": 1583526869441
+      "expiry": 1583870825021
     },
     "/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python.v3": {
       "data": {
@@ -151,7 +151,7 @@
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "d11889228d163286eff0753521039f542982a94896877360cb493c3dd7c8efc3ce47c234ffd29eb518dd71b8d6672d60b7864a2c7b914f00bb5a20929fc767bb"
       },
-      "expiry": 1583526869484
+      "expiry": 1583870825130
     },
     "/usr/local/opt/python/bin/python3.7.v3": {
       "data": {
@@ -176,7 +176,7 @@
         "sysPrefix": "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7",
         "fileHash": "a746c71c233562c70e2d11aac72ae3e23a0362685160480a3cf5170a1f51c715673308e1f30fc007024fd5faca4729ac76a0961dc2753d7072aa9f44c9d16235"
       },
-      "expiry": 1583526869520
+      "expiry": 1583870825134
     },
     "INTERPRETERS_CACHE_v3_CurrentPathService": [
       {
@@ -273,31 +273,31 @@
       },
       {
         "architecture": 3,
-        "path": "/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python",
+        "path": "/Users/apple/Documents/pyth exercises/pysci/bin/python3",
         "version": {
           "options": {
             "loose": false,
             "includePrerelease": false
           },
           "loose": false,
-          "raw": "2.7.16-final",
-          "major": 2,
+          "raw": "3.7.6-final",
+          "major": 3,
           "minor": 7,
-          "patch": 16,
+          "patch": 6,
           "prerelease": [
             "final"
           ],
           "build": [],
-          "version": "2.7.16-final"
+          "version": "3.7.6-final"
         },
-        "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
-        "fileHash": "d11889228d163286eff0753521039f542982a94896877360cb493c3dd7c8efc3ce47c234ffd29eb518dd71b8d6672d60b7864a2c7b914f00bb5a20929fc767bb",
+        "sysPrefix": "/Users/apple/Documents/pyth exercises/pysci",
+        "fileHash": "345e87f329ad53af88ec852b60766730bf8e600c86897ed4ac58bf268bf71176c3be79a847ab52920573e1f53a89b8f5867ce80a0a0929929c3466dc2479de91",
         "type": "Unknown"
       }
     ],
     "InterpreterAutoSeletionRule-currentPath": {
       "architecture": 3,
-      "path": "/usr/local/opt/python/bin/python3.7",
+      "path": "/Users/apple/Documents/pyth exercises/pysci/bin/python3",
       "version": {
         "options": {
           "loose": false,
@@ -314,8 +314,8 @@
         "build": [],
         "version": "3.7.6-final"
       },
-      "sysPrefix": "/usr/local/Cellar/python/3.7.6_1/Frameworks/Python.framework/Versions/3.7",
-      "fileHash": "a746c71c233562c70e2d11aac72ae3e23a0362685160480a3cf5170a1f51c715673308e1f30fc007024fd5faca4729ac76a0961dc2753d7072aa9f44c9d16235",
+      "sysPrefix": "/Users/apple/Documents/pyth exercises/pysci",
+      "fileHash": "345e87f329ad53af88ec852b60766730bf8e600c86897ed4ac58bf268bf71176c3be79a847ab52920573e1f53a89b8f5867ce80a0a0929929c3466dc2479de91",
       "type": "Unknown"
     },
     "preferredGlobalPyInterpreter": {
@@ -369,7 +369,7 @@
           "displayName": "Python 3.7.6 64-bit"
         }
       },
-      "expiry": 1583526956901
+      "expiry": 1583870825661
     },
     "/usr/bin/python3.v3": {
       "data": {
@@ -394,7 +394,7 @@
         "sysPrefix": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.7",
         "fileHash": "24332fe73e2e06cb614456419022e8f42a0de6101a849d73d1fd682ef7040569a2adce6b4dbf82954f6d933466d70d3495468941470db69268daa9dee0c1e195"
       },
-      "expiry": 1583526869661
+      "expiry": 1583870825164
     },
     "INTERPRETERS_CACHE_v3_KnownPathsService": [
       {
@@ -680,35 +680,35 @@
         "displayName": "Python 3.7.6 64-bit",
         "hash": "5745e5713ab6e1ff340e04389c1a7602be11f3e6d52efe8a4adf0f336c799aa120fe0b242bcea2f4a0c464ee6aa9173ecfa0587f3a699b14fee6d5b67c281dd9-4213205c4725201c08e962ac981ad329"
       },
-      "expiry": 1583526869705
+      "expiry": 1583870825587
     },
     "/usr/bin/python.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 2.7.16 64-bit",
         "hash": "3afcb352376cbdfb2937261b10cd7acc22cd67da795decdb6e3b8bf77ed13301725dec3ea30fdf5bd68c9f0a5f3037c706e489c35a047208ad0ef394e009bade-10eaa8d7a81e14ceae009356a27ac909"
       },
-      "expiry": 1583526869707
+      "expiry": 1583870825590
     },
     "/usr/bin/python3.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 3.7.3 64-bit",
         "hash": "24332fe73e2e06cb614456419022e8f42a0de6101a849d73d1fd682ef7040569a2adce6b4dbf82954f6d933466d70d3495468941470db69268daa9dee0c1e195-1ac7dd038ed68124967b6985d2b8f6d1"
       },
-      "expiry": 1583526869708
+      "expiry": 1583870825592
     },
     "/usr/local/opt/python/bin/python3.7.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 3.7.6 64-bit",
         "hash": "a746c71c233562c70e2d11aac72ae3e23a0362685160480a3cf5170a1f51c715673308e1f30fc007024fd5faca4729ac76a0961dc2753d7072aa9f44c9d16235-a4c0cd98e19fedcb036537ef88b50ae0"
       },
-      "expiry": 1583526869973
+      "expiry": 1583870825597
     },
     "/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python.interpreter.displayName.v7": {
       "data": {
         "displayName": "Python 2.7.16 64-bit",
         "hash": "d11889228d163286eff0753521039f542982a94896877360cb493c3dd7c8efc3ce47c234ffd29eb518dd71b8d6672d60b7864a2c7b914f00bb5a20929fc767bb-6dcaef7c18b5ed2627d87cb1df6eb3aa"
       },
-      "expiry": 1583526869713
+      "expiry": 1583870825600
     },
     "InterpreterAutoSeletionRule-system": {
       "architecture": 3,
@@ -762,7 +762,7 @@
           "displayName": "Python 3.7.6 64-bit"
         }
       },
-      "expiry": 1583526869782
+      "expiry": 1583870825645
     },
     "/usr/bin/python.interpreter.Details.v7": {
       "data": {
@@ -792,7 +792,7 @@
           "displayName": "Python 2.7.16 64-bit"
         }
       },
-      "expiry": 1583526869785
+      "expiry": 1583870825651
     },
     "/usr/bin/python3.interpreter.Details.v7": {
       "data": {
@@ -822,7 +822,7 @@
           "displayName": "Python 3.7.3 64-bit"
         }
       },
-      "expiry": 1583526869790
+      "expiry": 1583870825656
     },
     "/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python.interpreter.Details.v7": {
       "data": {
@@ -852,7 +852,7 @@
           "displayName": "Python 2.7.16 64-bit"
         }
       },
-      "expiry": 1583526869804
+      "expiry": 1583870825667
     },
     "InterpreterAutoSeletionRule-cachedInterpreters": {
       "architecture": 3,
@@ -878,7 +878,233 @@
       "type": "Unknown",
       "displayName": "Python 3.7.6 64-bit"
     },
-    "ProposeLSBanner": false
+    "ProposeLSBanner": false,
+    "/Users/apple/Documents/xtremepaper/.venv/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/apple/Documents/xtremepaper/.venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.6-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.6-final"
+        },
+        "sysPrefix": "/Users/apple/Documents/xtremepaper/.venv",
+        "fileHash": "d85ef6e8579d5eed168d8bde05c24cb319353e2f04bd1963ec35251d009f4e9a53eb0446441ebc73ad6cbf5bdc10e72ff4259223ad44ff8957284a2891c3c111"
+      },
+      "expiry": 1583784363896
+    },
+    "/Users/apple/Documents/xtremepaper/.venv/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/apple/Documents/xtremepaper/.venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.6-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.6-final"
+        },
+        "sysPrefix": "/Users/apple/Documents/xtremepaper/.venv",
+        "fileHash": "f1067d82e6dc6140125371628353a3ea62517d220f1fdeb0794822465e7aab0f800563c8f3be08498d8ecb71488511dc575b3b0b78d02a0f598ca27841aad26f"
+      },
+      "expiry": 1583784363897
+    },
+    "/Users/apple/Documents/xtremepaper/.venv/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.6 64-bit ('.venv': venv)",
+        "hash": "f1067d82e6dc6140125371628353a3ea62517d220f1fdeb0794822465e7aab0f800563c8f3be08498d8ecb71488511dc575b3b0b78d02a0f598ca27841aad26f-2f97f3a7593bf155ebe64602b02d473f"
+      },
+      "expiry": 1583784363956
+    },
+    "InterpreterAutoSeletionRule-workspaceEnvs": {
+      "architecture": 3,
+      "path": "/Users/apple/Documents/pyth exercises/pysci/bin/python3",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.7.6-final",
+        "major": 3,
+        "minor": 7,
+        "patch": 6,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.7.6-final"
+      },
+      "sysPrefix": "/Users/apple/Documents/pyth exercises/pysci",
+      "fileHash": "345e87f329ad53af88ec852b60766730bf8e600c86897ed4ac58bf268bf71176c3be79a847ab52920573e1f53a89b8f5867ce80a0a0929929c3466dc2479de91",
+      "envName": "pysci",
+      "type": "Venv"
+    },
+    "/Users/apple/Documents/xtremepaper/.venv/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "f1067d82e6dc6140125371628353a3ea62517d220f1fdeb0794822465e7aab0f800563c8f3be08498d8ecb71488511dc575b3b0b78d02a0f598ca27841aad26f",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/apple/Documents/xtremepaper/.venv/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.6-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 6,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.6-final"
+          },
+          "sysPrefix": "/Users/apple/Documents/xtremepaper/.venv",
+          "fileHash": "f1067d82e6dc6140125371628353a3ea62517d220f1fdeb0794822465e7aab0f800563c8f3be08498d8ecb71488511dc575b3b0b78d02a0f598ca27841aad26f",
+          "envName": ".venv",
+          "type": "Venv",
+          "displayName": "Python 3.7.6 64-bit ('.venv': venv)"
+        }
+      },
+      "expiry": 1583784363983
+    },
+    "/Users/apple/Documents/xtremepaper/.venv/bin/python3.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "d85ef6e8579d5eed168d8bde05c24cb319353e2f04bd1963ec35251d009f4e9a53eb0446441ebc73ad6cbf5bdc10e72ff4259223ad44ff8957284a2891c3c111"
+      },
+      "expiry": 1583784364150
+    },
+    "/Users/apple/Documents/xtremepaper/.venv/bin/python3.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.6 64-bit ('.venv': venv)",
+        "hash": "d85ef6e8579d5eed168d8bde05c24cb319353e2f04bd1963ec35251d009f4e9a53eb0446441ebc73ad6cbf5bdc10e72ff4259223ad44ff8957284a2891c3c111-b212b31339f55fd85c91309b9af7f5cc"
+      },
+      "expiry": 1583784364240
+    },
+    "/Users/apple/Documents/pyth exercises/pysci/bin/python.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/apple/Documents/pyth exercises/pysci/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.6-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.6-final"
+        },
+        "sysPrefix": "/Users/apple/Documents/pyth exercises/pysci",
+        "fileHash": "06173a4a29c89d83b531acbaf6fcba65b9070e25da2a4d2d24d0bb617b8eb30391dc2088706111ee7e6a0e8215a884911f474fd41c23deec63392c1c017a6e92"
+      },
+      "expiry": 1583870825139
+    },
+    "/Users/apple/Documents/pyth exercises/pysci/bin/python3.v3": {
+      "data": {
+        "architecture": 3,
+        "path": "/Users/apple/Documents/pyth exercises/pysci/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.6-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.6-final"
+        },
+        "sysPrefix": "/Users/apple/Documents/pyth exercises/pysci",
+        "fileHash": "345e87f329ad53af88ec852b60766730bf8e600c86897ed4ac58bf268bf71176c3be79a847ab52920573e1f53a89b8f5867ce80a0a0929929c3466dc2479de91"
+      },
+      "expiry": 1583870825142
+    },
+    "/Users/apple/Documents/pyth exercises/pysci/bin/python.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.6 64-bit ('pysci': venv)",
+        "hash": "06173a4a29c89d83b531acbaf6fcba65b9070e25da2a4d2d24d0bb617b8eb30391dc2088706111ee7e6a0e8215a884911f474fd41c23deec63392c1c017a6e92-e90fc1cdfded3b0ed3fee960150ce78f"
+      },
+      "expiry": 1583870825172
+    },
+    "/Users/apple/Documents/pyth exercises/pysci/bin/python.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "06173a4a29c89d83b531acbaf6fcba65b9070e25da2a4d2d24d0bb617b8eb30391dc2088706111ee7e6a0e8215a884911f474fd41c23deec63392c1c017a6e92",
+        "info": {
+          "architecture": 3,
+          "path": "/Users/apple/Documents/pyth exercises/pysci/bin/python",
+          "version": {
+            "options": {
+              "loose": false,
+              "includePrerelease": false
+            },
+            "loose": false,
+            "raw": "3.7.6-final",
+            "major": 3,
+            "minor": 7,
+            "patch": 6,
+            "prerelease": [
+              "final"
+            ],
+            "build": [],
+            "version": "3.7.6-final"
+          },
+          "sysPrefix": "/Users/apple/Documents/pyth exercises/pysci",
+          "fileHash": "06173a4a29c89d83b531acbaf6fcba65b9070e25da2a4d2d24d0bb617b8eb30391dc2088706111ee7e6a0e8215a884911f474fd41c23deec63392c1c017a6e92",
+          "envName": "pysci",
+          "type": "Venv",
+          "displayName": "Python 3.7.6 64-bit ('pysci': venv)"
+        }
+      },
+      "expiry": 1583870825258
+    },
+    "/Users/apple/Documents/pyth exercises/pysci/bin/python3.interpreter.Details.v7": {
+      "data": {
+        "fileHash": "345e87f329ad53af88ec852b60766730bf8e600c86897ed4ac58bf268bf71176c3be79a847ab52920573e1f53a89b8f5867ce80a0a0929929c3466dc2479de91"
+      },
+      "expiry": 1583870825609
+    },
+    "/Users/apple/Documents/pyth exercises/pysci/bin/python3.interpreter.displayName.v7": {
+      "data": {
+        "displayName": "Python 3.7.6 64-bit ('pysci': venv)",
+        "hash": "345e87f329ad53af88ec852b60766730bf8e600c86897ed4ac58bf268bf71176c3be79a847ab52920573e1f53a89b8f5867ce80a0a0929929c3466dc2479de91-1632e5b0a29a85f30831ee42e5e6b614"
+      },
+      "expiry": 1583870825756
+    }
   },
   "coc-python|/Users/apple/Documents/pyth image work": {
     "INTERPRETERS_CACHE_v3_PipEnvService:3b1d3560b97c54cf7f324a33c7d74a86": [],
@@ -941,5 +1167,263 @@
     },
     "INTERPRETERS_CACHE_v3_PipEnvService": [],
     "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
+  },
+  "coc-python|/Users/apple/Documents/xtremepaper": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:1e298c49271d919e2dc50d319b2597b7": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:1e298c49271d919e2dc50d319b2597b7": [
+      {
+        "architecture": 3,
+        "path": "/Users/apple/Documents/xtremepaper/.venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.6-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.6-final"
+        },
+        "sysPrefix": "/Users/apple/Documents/xtremepaper/.venv",
+        "fileHash": "f1067d82e6dc6140125371628353a3ea62517d220f1fdeb0794822465e7aab0f800563c8f3be08498d8ecb71488511dc575b3b0b78d02a0f598ca27841aad26f",
+        "envName": ".venv",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/apple/Documents/xtremepaper/.venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.6-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.6-final"
+        },
+        "sysPrefix": "/Users/apple/Documents/xtremepaper/.venv",
+        "fileHash": "d85ef6e8579d5eed168d8bde05c24cb319353e2f04bd1963ec35251d009f4e9a53eb0446441ebc73ad6cbf5bdc10e72ff4259223ad44ff8957284a2891c3c111",
+        "envName": ".venv",
+        "type": "Venv"
+      }
+    ],
+    "SelectedPythonPath": "/Users/apple/Documents/xtremepaper/.venv/bin/python3",
+    "autoSelectedWorkspacePythonInterpreter-/Users/apple/Documents/xtremepaper": {
+      "architecture": 3,
+      "path": "/Users/apple/Documents/xtremepaper/.venv/bin/python3",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.7.6-final",
+        "major": 3,
+        "minor": 7,
+        "patch": 6,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.7.6-final"
+      },
+      "sysPrefix": "/Users/apple/Documents/xtremepaper/.venv",
+      "fileHash": "d85ef6e8579d5eed168d8bde05c24cb319353e2f04bd1963ec35251d009f4e9a53eb0446441ebc73ad6cbf5bdc10e72ff4259223ad44ff8957284a2891c3c111",
+      "envName": ".venv",
+      "type": "Venv"
+    },
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [
+      {
+        "architecture": 3,
+        "path": "/Users/apple/Documents/xtremepaper/.venv/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.6-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.6-final"
+        },
+        "sysPrefix": "/Users/apple/Documents/xtremepaper/.venv",
+        "fileHash": "f1067d82e6dc6140125371628353a3ea62517d220f1fdeb0794822465e7aab0f800563c8f3be08498d8ecb71488511dc575b3b0b78d02a0f598ca27841aad26f",
+        "envName": ".venv",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/apple/Documents/xtremepaper/.venv/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.6-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.6-final"
+        },
+        "sysPrefix": "/Users/apple/Documents/xtremepaper/.venv",
+        "fileHash": "d85ef6e8579d5eed168d8bde05c24cb319353e2f04bd1963ec35251d009f4e9a53eb0446441ebc73ad6cbf5bdc10e72ff4259223ad44ff8957284a2891c3c111",
+        "envName": ".venv",
+        "type": "Venv"
+      }
+    ]
+  },
+  "coc-python|/Users/apple/Documents/pyth exercises": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:d622088204c4578abf5bb1b11b3ce640": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:d622088204c4578abf5bb1b11b3ce640": [
+      {
+        "architecture": 3,
+        "path": "/Users/apple/Documents/pyth exercises/pysci/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.6-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.6-final"
+        },
+        "sysPrefix": "/Users/apple/Documents/pyth exercises/pysci",
+        "fileHash": "06173a4a29c89d83b531acbaf6fcba65b9070e25da2a4d2d24d0bb617b8eb30391dc2088706111ee7e6a0e8215a884911f474fd41c23deec63392c1c017a6e92",
+        "envName": "pysci",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/apple/Documents/pyth exercises/pysci/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.6-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.6-final"
+        },
+        "sysPrefix": "/Users/apple/Documents/pyth exercises/pysci",
+        "fileHash": "345e87f329ad53af88ec852b60766730bf8e600c86897ed4ac58bf268bf71176c3be79a847ab52920573e1f53a89b8f5867ce80a0a0929929c3466dc2479de91",
+        "envName": "pysci",
+        "type": "Venv"
+      }
+    ],
+    "SelectedPythonPath": "/Users/apple/Documents/pyth exercises/pysci/bin/python3",
+    "autoSelectedWorkspacePythonInterpreter-/Users/apple/Documents/pyth exercises": {
+      "architecture": 3,
+      "path": "/Users/apple/Documents/pyth exercises/pysci/bin/python3",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.7.6-final",
+        "major": 3,
+        "minor": 7,
+        "patch": 6,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.7.6-final"
+      },
+      "sysPrefix": "/Users/apple/Documents/pyth exercises/pysci",
+      "fileHash": "345e87f329ad53af88ec852b60766730bf8e600c86897ed4ac58bf268bf71176c3be79a847ab52920573e1f53a89b8f5867ce80a0a0929929c3466dc2479de91",
+      "envName": "pysci",
+      "type": "Venv"
+    },
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [
+      {
+        "architecture": 3,
+        "path": "/Users/apple/Documents/pyth exercises/pysci/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.6-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.6-final"
+        },
+        "sysPrefix": "/Users/apple/Documents/pyth exercises/pysci",
+        "fileHash": "06173a4a29c89d83b531acbaf6fcba65b9070e25da2a4d2d24d0bb617b8eb30391dc2088706111ee7e6a0e8215a884911f474fd41c23deec63392c1c017a6e92",
+        "envName": "pysci",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/apple/Documents/pyth exercises/pysci/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.7.6-final",
+          "major": 3,
+          "minor": 7,
+          "patch": 6,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.7.6-final"
+        },
+        "sysPrefix": "/Users/apple/Documents/pyth exercises/pysci",
+        "fileHash": "345e87f329ad53af88ec852b60766730bf8e600c86897ed4ac58bf268bf71176c3be79a847ab52920573e1f53a89b8f5867ce80a0a0929929c3466dc2479de91",
+        "envName": "pysci",
+        "type": "Venv"
+      }
+    ]
   }
 }

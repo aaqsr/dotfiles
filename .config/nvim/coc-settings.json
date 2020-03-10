@@ -10,8 +10,6 @@
       //-------- Code Spell Checker Configuration --------
     // The Language local to use when spell checking. "en" and "en-GB" are currently supported.
 "cSpell.languageSettings": [
-    { "languageId": "*",      "local": "en",               "dictionaries": ["wordsEn"] },
-    { "languageId": "*",      "local": "en-US",            "dictionaries": ["wordsEn"] },
     { "languageId": "*",      "local": "en-GB",            "dictionaries": ["wordsEnGb"] },
     { "languageId": "*",                                   "dictionaries": ["companies", "softwareTerms", "misc"] },
     { "languageId": "python", "allowCompoundWords": true,  "dictionaries": ["python"]},
@@ -49,7 +47,7 @@
         "typescript",
         "typescriptreact",
         "yml",
-	"tex"
+      	"tex"
     ],
 
     // Enable / Disable the spell checker.
@@ -66,8 +64,10 @@
 
     // User words to add to dictionary.  Should only be in the user settings.
     "cSpell.userWords": [
+      "Lowood",
       "documentclass",
       "newcommand",
+      "roch",
       "usepackage"
     ],
 
