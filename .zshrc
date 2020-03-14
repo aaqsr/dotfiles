@@ -2,7 +2,7 @@
 
 # Colours ; PROMPT
 autoload -U colors && colors
-PROMPT='%F{green}[%F{183}aa %F{81}%/%F{green}]%F{162}%#%f:'
+PROMPT='%F{green}[%F{183}aa %F{81}%/%F{green}]%F{162}%#%f '
 
 # History in cache directory:
 HISTSIZE=10000
