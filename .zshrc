@@ -1,4 +1,4 @@
-# Mostly copied from luke smith's old config @ https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52
+# Parts copied from luke smith's old config @ https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52
 
 # Colours ; PROMPT
 autoload -U colors && colors
@@ -47,3 +47,8 @@ zle-line-init() {
 zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+
+# setting defaults
+export EDITOR='nvim'
+export VISUAL='nvim'

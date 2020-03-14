@@ -1,7 +1,7 @@
 "Checks if Vimrc exists and tries to import it
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
-let &packpath = &runtimepath
-source ~/.vimrc
+"set runtimepath^=~/.vim runtimepath+=~/.vim/after
+"let &packpath = &runtimepath
+"source ~/.vimrc
 
 let mapleader =" "
 "Plug 
