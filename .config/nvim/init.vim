@@ -1,4 +1,4 @@
-"Checks if Vimrc exists and tries to import it
+"Check if Vimrc exists and tries to import it
 "set runtimepath^=~/.vim runtimepath+=~/.vim/after
 "let &packpath = &runtimepath
 "source ~/.vimrc
@@ -7,8 +7,14 @@ let mapleader =" "
 "Plug 
 call plug#begin('~/.vim/plugged')
 
+"Comment lines with leader + '
+Plug 'tpope/vim-commentary'
+
 "Center zen mode
 Plug 'junegunn/goyo.vim'
+
+"Format on <F4>
+Plug 'chiel92/vim-autoformat'
 
 "THEME : hzchirs/vim-material on github 
 "Plug 'itchyny/lightline.vim'
@@ -20,6 +26,9 @@ Plug 'hzchirs/vim-material'
 
 "COC (autocomplete)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+"Discord presence cause why not
+Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}
 
 call plug#end()
 
@@ -73,7 +82,11 @@ colorscheme vim-material
 set noshowmode
 "Configuring Goyo
 let g:goyo_width=100
-
+"Configuring Discord presence
+let g:discord_activate_on_enter=1
+"Configuring path to prettiers/formatters
+let g:formatterpath = ['/Users/apple/Latex_prettier/latexindent.pl:']
+"to add any other language support go to https://vimawesome.com/plugin/vim-autoformat
 
 "Key bindings
 " j/k will move virtual lines (lines that wrap)
@@ -102,6 +115,14 @@ let g:coc_snippet_next = '<tab>'
 "For goyo
 map <leader>z :Goyo \| set linebreak<CR>
 
+"To update discord presence
+map <leader><F2> :DiscordUpdatePresence <CR>
+
+"To format a file
+noremap <F4> :Autoformat<CR>
+
+"To comment a line
+map <leader>' gcc<CR>
 
 "COC (autocomplete) plugins
 let g:coc_global_extensions = [
@@ -113,3 +134,6 @@ let g:coc_global_extensions = [
   \ ]
 "Notes on how to use:
 "Do ':CocCommand snippets.editSnippets' to add custom snippets
+
+"Post Startup
+autocmd VimEnter * DiscordUpdatePresence
