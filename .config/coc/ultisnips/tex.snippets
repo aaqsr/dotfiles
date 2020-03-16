@@ -55,10 +55,22 @@ snippet \formula "Faster way to insert forumlae" b
 \end{enumerate}
 endsnippet
 
-snippet / "Inserts fraction" A
+snippet f; "Inserts fraction" A
 \frac{$1}{$2} $3
 endsnippet
 
-snippet * "Inserts multiply sign" A
+snippet m; "Inserts multiply sign" A
 \times $1
+endsnippet
+
+snippet $; "Inserts math mode" A
+\( $1 \) $2
+endsnippet
+
+snippet ]; "Inserts large math mode" A
+
+\[
+	$1
+\]
+$2
 endsnippet
