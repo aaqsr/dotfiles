@@ -24,9 +24,8 @@
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 
-# Type "docu" to trigger.
 snippet \docu "Starts the document in typical Awab preference" b
-\documentclass[12pt,a4paper]{article}
+\documentclass[12pt]{article}
 \usepackage[margin=1in]{geometry}
 $3
 
@@ -42,4 +41,24 @@ $3
 $4
 
 \end{document}
+endsnippet
+
+snippet \formula "Faster way to insert forumlae" b
+\subsection{$1}
+% \begin{mybox}
+\[
+	$2
+	\]
+% \end{mybox}
+\begin{enumerate}
+	\item $3
+\end{enumerate}
+endsnippet
+
+snippet / "Inserts fraction" A
+\frac{$1}{$2} $3
+endsnippet
+
+snippet * "Inserts multiply sign" A
+\times $1
 endsnippet

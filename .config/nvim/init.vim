@@ -12,6 +12,9 @@ let mapleader =" "
 "Plug
 call plug#begin('~/.vim/plugged')
 
+"LaTeX plugin
+Plug 'lervag/vimtex'
+
 "Bracket pair colouriser
 Plug 'luochen1990/rainbow'
 
@@ -137,6 +140,10 @@ noremap <F4> :Autoformat<CR>
 
 "To comment a line
 map <leader>' gcc<CR>
+
+"cntrl f to insert figure by opening inkscape (from https://github.com/gillescastel/inkscape-figures)
+inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
+nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 
 "COC (autocomplete) plugins
 let g:coc_global_extensions = [
