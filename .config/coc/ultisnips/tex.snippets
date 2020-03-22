@@ -43,7 +43,7 @@ $4
 \end{document}
 endsnippet
 
-snippet \formula "Faster way to insert forumlae" b
+snippet \formula "Faster way to insert forumlae (To be deleted)" b
 \subsection{$1}
 % \begin{mybox}
 \[
@@ -51,14 +51,32 @@ snippet \formula "Faster way to insert forumlae" b
 	\]
 % \end{mybox}
 \begin{enumerate}
-	\item $3
+	\item \($3\) is the $4
+	\item \($5\) is the $6
+	\item \($7\) is the $8
 \end{enumerate}
 endsnippet
 
-snippet / "Inserts fraction" A
+snippet i; "Inserts item in enumerate (To be deleted)" A
+\item \($1\) is the $2
+endsnippet
+
+snippet f; "Inserts fraction" A
 \frac{$1}{$2} $3
 endsnippet
 
-snippet * "Inserts multiply sign" A
+snippet m; "Inserts multiply sign" A
 \times $1
+endsnippet
+
+snippet $; "Inserts math mode" A
+\( $1 \) $2
+endsnippet
+
+snippet ]; "Inserts large math mode" A
+
+\[
+	$1
+\]
+$2
 endsnippet
