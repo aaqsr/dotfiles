@@ -9,6 +9,9 @@
 
 
 let mapleader =" "
+let maplocalleader = "\\"
+"Note on how this just means that just a single \ is localleader not \\
+
 "Plug
 call plug#begin('~/.vim/plugged')
 
@@ -70,6 +73,22 @@ set expandtab
 "(DEPRECATED) for autocompletion in command mode
 "set wildmode=longest,list,full
 
+"For vimtex's copilation script
+"for adding remote capabilities
+let g:vimtex_compiler_progname = 'nvr'
+"start server
+if empty(v:servername) && exists('*remote_startserver')
+    call remote_startserver('VIM')
+endif
+"To get rid of vimtex thinking it's plaintex not tex
+let g:tex_flavor = 'latex'
+"To change default pdf viewer for vimtex compile:
+let g:vimtex_view_method = 'zathura'
+"let g:vimtex_complete_img_use_tail = 1
+"let g:vimtex_fold_enabled = 1
+"let g:vimtex_format_enabled = 1
+
+
 
 "THEME
 " For Neovim 0.1.3 and 0.1.4 - https://github.com/neovim/neovim/pull/2198
@@ -104,6 +123,7 @@ let g:formatterpath = ['/Users/apple/Latex_prettier/latexindent.pl:']
 "to add any other language support go to https://vimawesome.com/plugin/vim-autoformat
 "to make brackets coloured
 let g:rainbow_active = 1
+
 
 "Key bindings
 " j/k will move virtual lines (lines that wrap)

@@ -1,10 +1,13 @@
-snippet
-$;
-);
 ];
 m;
-f;
+\docu
 i;
+$;
+\formula
+\i;
+f;
+snippet
+);
 /;
 *:
 /:
@@ -14,8 +17,6 @@ $
 *
 \f
 \m
-\formula
-\docu
 for
 __main__
 def
