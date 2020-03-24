@@ -59,6 +59,8 @@
       </property>
       <property name="show-frame" type="bool" value="false"/>
       <property name="names-ordered" type="array">
+        <value type="string" value="albert"/>
+        <value type="string" value="vlc"/>
         <value type="string" value="xfce terminal"/>
         <value type="string" value="evolution-alarm-notify"/>
         <value type="string" value="steam"/>
@@ -84,7 +86,7 @@
     </property>
     <property name="plugin-9" type="string" value="pulseaudio">
       <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
-      <property name="mpris-players" type="string" value="chromium.instance1053;chromium.instance1095;chromium.instance1104;chromium.instance1466;chromium.instance1606;chromium.instance1616;chromium.instance3744;chromium.instance82157"/>
+      <property name="mpris-players" type="string" value="chromium.instance1053;chromium.instance1095;chromium.instance1104;chromium.instance1181;chromium.instance1213;chromium.instance1216;chromium.instance1392;chromium.instance1466;chromium.instance1606;chromium.instance1616;chromium.instance26018;chromium.instance3744;chromium.instance5300;chromium.instance82157;vlc"/>
     </property>
     <property name="plugin-8" type="string" value="whiskermenu"/>
     <property name="plugin-5" type="string" value="clock">

@@ -2,11 +2,11 @@
 4.10.3+=true
 
 [Wastebasket]
-row=6
+row=8
 col=0
 
 [/]
-row=5
+row=9
 col=0
 
 [/home/aaqsr]
