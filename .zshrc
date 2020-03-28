@@ -2,6 +2,7 @@
 
 # Colours ; PROMPT
 # Using the powerline at https://github.com/denysdovhan/spaceship-prompt
+# Dont forget to run "npm install -g spaceship-prompt"
 autoload -U colors && colors 
 autoload -U promptinit; promptinit
 prompt spaceship
