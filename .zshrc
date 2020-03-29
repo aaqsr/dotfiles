@@ -1,8 +1,17 @@
 # Parts copied from luke smith's old config @ https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52
 
 # Colours ; PROMPT
-autoload -U colors && colors
-PROMPT='%F{green}[%F{183}aa %F{81}%/%F{green}]%F{162}%#%f '
+# Using the powerline at https://github.com/denysdovhan/spaceship-prompt
+# Dont forget to run "npm install -g spaceship-prompt"
+autoload -U colors && colors 
+autoload -U promptinit; promptinit
+prompt spaceship
+
+# Make it print out the whole path
+SPACESHIP_DIR_TRUNC=0
+
+# PROMPT='%F{green}[%F{183}aa %F{81}%/%F{green}]%F{162}%#%f '
+
 
 # History in cache directory:
 HISTSIZE=10000

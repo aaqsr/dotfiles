@@ -1,0 +1,15 @@
+[xfdesktop-version-4.10.3+-rcfile_format]
+4.10.3+=true
+
+[Wastebasket]
+row=8
+col=0
+
+[/]
+row=9
+col=0
+
+[/home/aaqsr]
+row=7
+col=0
+

@@ -64,11 +64,27 @@
 
     // User words to add to dictionary.  Should only be in the user settings.
     "cSpell.userWords": [
+      "Awab",
       "Lowood",
       "Zong's",
+      "Qureshi",
+      "afterpage",
+      "clearpage",
+      "colourless",
+      "crystalisation",
       "documentclass",
+      "graphicx",
+      "includegraphics",
+      "maketitle",
+      "mhchem",
       "newcommand",
+      "newgeometry",
+      "pagebreak",
+      "restoregeometry",
       "roch",
+      "subsubsection",
+      "textit",
+      "unreacted",
       "usepackage"
     ],
 
