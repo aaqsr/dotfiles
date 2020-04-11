@@ -61,3 +61,20 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 # setting defaults
 export EDITOR='nvim'
 export VISUAL='nvim'
+
+# -------------------------------------------------------------------------------- #
+
+# For own scripts
+export PATH="$HOME/Programming/shell_scripts:$PATH"
+# For go programs
+export PATH="$HOME/go/bin:$PATH"
+
+# pywal
+# Import colorscheme from 'wal' asynchronously
+# &   # Run the process in the background.
+# ( ) # Hide shell job control messages.
+(cat ~/.cache/wal/sequences &)
+source ~/.cache/wal/colors-tty.sh
+
+# for highlighting requires zsh-syntax-highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -9,7 +9,7 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
-SESSION=${1:-xfce}
+# SESSION=${1:-xfce}
 
 # merge in defaults and keymaps
 
@@ -29,14 +29,14 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
-# start some nice programs
 
-if [ -d /etc/X11/xinit/xinitrc.d ] ; then
-    for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
-        [ -x "$f" ] && . "$f"
-    done
-    unset f
-fi
+# Starting programs
+# if [ -d /etc/X11/xinit/xinitrc.d ] ; then
+#     for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+#         [ -x "$f" ] && . "$f"
+#     done
+#     unset f
+# fi
 
 # 	local dbus_args=(--sh-syntax --exit-with-session)
 # 	case "$SESSION" in
@@ -62,5 +62,22 @@ fi
 # 	echo "dbus-launch ${dbus_args[*]}"
 # }
 
-exec dwm
+
+# SET WALLPAPER AND THEMES
+# If you want it done in .xprofile
+# [ -f ~/.xprofile ] && . ~/.xprofile
+
+xwallpaper --zoom ~/.config/wall.png    # Sets wallpaper
+
+# wal --theme base16-porple               # Runs wal to set xresources theme 
+# wal -i /home/aaqsr/Pictures/Wallpapers/Nature/derrick-cooper-L505cPnmIds-unsplash.jpg
+# wal -i ~/.config/wall.png #--backend schemer2
+wal -i ~/.config/pywall.png
+# wal --theme base16-eighties
+
+exec picom &                            # Transparency
+exec dwmbarupdater &                    # For the status bar
+
+# START WM
 nvidia-settings --load-config-only
+exec dwm

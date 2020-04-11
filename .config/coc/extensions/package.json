@@ -1,13 +1,13 @@
 {
   "dependencies": {
     "coc-actions": ">=1.4.0",
-    "coc-clangd": ">=0.2.5",
+    "coc-clangd": ">=0.3.1",
     "coc-json": ">=1.2.5",
     "coc-pairs": ">=1.2.21",
-    "coc-prettier": ">=1.1.11",
+    "coc-prettier": ">=1.1.12",
     "coc-python": ">=1.2.9",
-    "coc-snippets": ">=2.1.22",
+    "coc-snippets": ">=2.1.24",
     "coc-spell-checker": ">=1.2.0",
-    "coc-texlab": ">=1.10.0"
+    "coc-texlab": ">=1.10.2"
   }
 }

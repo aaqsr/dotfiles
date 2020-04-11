@@ -69,8 +69,16 @@ snippet i; "Inserts item in enumerate (To be deleted)" A
 $2
 endsnippet
 
-snippet f; "Inserts fraction" A
-\frac{$1}{$2} $3
+# snippet f; "Inserts fraction" iA
+# \frac{$1}{$2} $3
+# endsnippet
+
+# snippet // "Fraction" iA
+# \\frac{$1}{$2}$0
+# endsnippet
+
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction of form 3/ -> \frac{3}{}" wrA
+\\frac{`!p snip.rv = match.group(1)`}{$1}$0
 endsnippet
 
 snippet m; "Inserts multiply sign" A
@@ -87,4 +95,11 @@ snippet ]; "Inserts large math mode" A
 	$1
 \]
 $2
+endsnippet
+
+snippet box "Inserts a dynamic Box"
+`!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
+│ $1 │
+`!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
+$0
 endsnippet
