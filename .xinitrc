@@ -62,6 +62,8 @@ fi
 # 	echo "dbus-launch ${dbus_args[*]}"
 # }
 
+# Set audio profile in case it doesnt set the correct one
+pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:analog-stereo+input:analog-stereo & 
 
 # SET WALLPAPER AND THEMES
 # If you want it done in .xprofile
@@ -77,6 +79,7 @@ wal -i ~/.config/pywall.png
 
 exec picom &                            # Transparency
 exec dwmbarupdater &                    # For the status bar
+exec sxhkd &                            # Starts sxhkd (for keybindings and hotkeys)
 
 # START WM
 nvidia-settings --load-config-only
