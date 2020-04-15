@@ -21,6 +21,9 @@ Plug 'ap/vim-css-color'
 "LaTeX plugin
 Plug 'lervag/vimtex'
 
+"sxhkd syntax highlighting
+Plug 'kovetskiy/sxhkd-vim'
+
 "Bracket pair colouriser
 Plug 'luochen1990/rainbow'
 
@@ -67,6 +70,7 @@ augroup END
 syntax on
 "Get rid of the annoying bell
 set belloff=all
+set softtabstop=4
 set smarttab
 set cindent
 set tabstop=4
@@ -99,6 +103,8 @@ let g:vimtex_view_method = 'zathura'
 " set conceallevel=1
 " let g:tex_conceal='abdmg'
 
+"Fix splitting
+set splitbelow splitright
 
 "THEME
 " For Neovim 0.1.3 and 0.1.4 - https://github.com/neovim/neovim/pull/2198
@@ -109,7 +115,7 @@ endif
 " Based on Vim patch 7.4.1770 (`guicolors` option) - https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd
 " https://github.com/neovim/neovim/wiki/Following-HEAD#20160511
 " if (has('termguicolors'))
-    " set termguicolors
+" set termguicolors
 " endif
 "Configuring the line at bottom of screen
 " let g:airline = { 'colorscheme': 'dark' }
@@ -136,6 +142,13 @@ let g:formatterpath = ['/Users/apple/Latex_prettier/latexindent.pl:']
 "to add any other language support go to https://vimawesome.com/plugin/vim-autoformat
 "to make brackets coloured
 let g:rainbow_active = 1
+
+"Use system clipboard lmao
+set clipboard+=unnamedplus
+
+" Highlights the current line you are on
+" set cursorline
+" highlight CursorLine guibg=#191919
 
 
 "Key bindings
@@ -174,6 +187,23 @@ noremap <F4> :Autoformat<CR>
 "To comment a line
 map <leader>' gcc<CR>
 
+"Shortcutting split navigation
+"Instead of having to do control w then h j k l, you can just do control h j k l
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" Writes out the replace all command
+nnoremap <leader>r :%s//g<Left><Left>
+
+" Save file as sudo when no sudo permissions
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
+" Shortcut split opening
+nnoremap <leader>h :split<Space> \| set linebreak<CR>
+nnoremap <leader>v :vsplit<Space> \| set linebreak<CR>
+
 "cntrl f to insert figure by opening inkscape (from https://github.com/gillescastel/inkscape-figures)
 inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
 nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
@@ -189,5 +219,22 @@ let g:coc_global_extensions = [
 "Notes on how to use:
 "Do ':CocCommand snippets.editSnippets' to add custom snippets
 
+"Auto commands:
+
+"Make sure the correct extension is used for latex files
+autocmd BufRead,BufNewFile *.tex set filetype=tex
+
+" Vertically center document when entering insert mode
+" autocmd InsertEnter * norm zz
+
+" Remove trailing whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
+
+autocmd FileType tex,latex,markdown setlocal spell spelllang=en_gb
+
 "Post Startup
 autocmd VimEnter * DiscordUpdatePresence
+
+"TYPEWRITER MODE TEST (NO WORK)
+" map <leader>t zz \| set scrolloff=999
+" map <leader>T :set scrolloff=0 \| set linebreak<CR>
