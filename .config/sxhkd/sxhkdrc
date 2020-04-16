@@ -2,7 +2,7 @@
 # note you need to start it in .xinitrc and install the vim plugin for it to highlight syntax properly
 
 
-# --------------------- LAUNCH PROGRAMS --------------------- 
+# --------------------- LAUNCH PROGRAMS ---------------------
 
 # Launch Web Browser
 mod4 + c
@@ -16,11 +16,11 @@ mod4 + t
 mod4 + e
 	pcmanfm
 
-# --------------------- LAUNCH OWN SCRIPTS --------------------- 
+# --------------------- LAUNCH OWN SCRIPTS ---------------------
 
-# Increase/Decrease Volume
-mod4 + {F11,F12}
-	vol{dec,inc}
+# ToggleMute/Increase/Decrease Volume
+mod4 + {F10,F11,F12}
+	vol{mute,dec,inc}
 
 # Insert Emoji
 ctrl + alt + space
