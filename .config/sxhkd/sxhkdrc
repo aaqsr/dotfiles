@@ -1,0 +1,39 @@
+# Key bindings defined by simple x hotkey daemon ie. sxhkd
+# note you need to start it in .xinitrc and install the vim plugin for it to highlight syntax properly
+
+
+# --------------------- LAUNCH PROGRAMS --------------------- 
+
+# Launch Web Browser
+mod4 + c
+	chromium
+
+# Launch Terminal
+mod4 + t
+	st
+
+# Launch File Browser
+mod4 + e
+	pcmanfm
+
+# --------------------- LAUNCH OWN SCRIPTS --------------------- 
+
+# Increase/Decrease Volume
+mod4 + {F11,F12}
+	vol{dec,inc}
+
+# Insert Emoji
+ctrl + alt + space
+	emojipicker
+
+# Update dwm bar
+mod4 + F2
+	dwmbar
+
+# Take temp screenshot and save to clipboard
+mod4 + shift + s
+	screenshot
+
+# Take screenshot and save it and copy it to clipboard
+mod4 + s
+	screenshotsave
