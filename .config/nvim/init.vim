@@ -47,7 +47,7 @@ Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}
 call plug#end()
 
 
-" ----------------------- GENERAL MISC TO MAKE LIFE EASY -----------------------
+" ----------------------- GENERAL MISC FOR CONVENIENCE -----------------------
 " Set Numbers so that they are hybrid in normal mode and switch to absolute in insert more
 set number relativenumber
 augroup numbertoggle
@@ -77,9 +77,21 @@ set mouse=a
 " Use system clipboard instead of registers (sorry xxx_pro_vim_users_xxx)
 set clipboard+=unnamedplus
 
+" Writes out the replace all command
+nnoremap <leader>r :%s//g<Left><Left>
+
+" Save file as sudo when no sudo permissions
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
 " j/k will move virtual lines (lines that wrap) instead of having to do gj/gk
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+
+" Remove trailing whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
+
+" Set spelling language
+autocmd FileType tex,latex,markdown setlocal spell spelllang=en_gb
 
 
 " ----------------------- THEME -----------------------
@@ -126,6 +138,9 @@ let g:discord_activate_on_enter=1
 " Shortcut update discord presence by <leader><F2>
 map <leader><F2> :DiscordUpdatePresence <CR>
 
+"Post Startup
+autocmd VimEnter * DiscordUpdatePresence
+
 
 " ----------------------- VIMTEX -----------------------
 "For vimtex's copilation script
@@ -146,9 +161,9 @@ let g:vimtex_view_method = 'zathura'
 "To hide latex doe unless you on that line to make it better looking
 " set conceallevel=1
 " let g:tex_conceal='abdmg'
-"Configuring path to prettiers/formatters
-let g:formatterpath = ['/Users/apple/Latex_prettier/latexindent.pl:']
-"to add any other language support go to https://vimawesome.com/plugin/vim-autoformat
+
+"Make sure the correct extension is used for latex files
+autocmd BufRead,BufNewFile *.tex set filetype=tex
 
 
 " ----------------------- SPLITS -----------------------
@@ -193,28 +208,6 @@ function! s:check_back_space() abort
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-
-
-"To format a file
-noremap <F4> :Autoformat<CR>
-
-"To comment a line
-map <leader>' gcc<CR>
-
-
-
-" Writes out the replace all command
-nnoremap <leader>r :%s//g<Left><Left>
-
-" Save file as sudo when no sudo permissions
-cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
-
-
-
-"cntrl f to insert figure by opening inkscape (from https://github.com/gillescastel/inkscape-figures)
-inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
-nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
-
 "COC (autocomplete) plugins
 let g:coc_global_extensions = [
             \ 'coc-snippets',
@@ -226,21 +219,26 @@ let g:coc_global_extensions = [
 "Notes on how to use:
 "Do ':CocCommand snippets.editSnippets' to add custom snippets
 
-"Auto commands:
 
-"Make sure the correct extension is used for latex files
-autocmd BufRead,BufNewFile *.tex set filetype=tex
+" ----------------------- PRETTIFIER AND COMMENTER -----------------------
+"Configuring path to prettiers/formatters
+let g:formatterpath = ['/Users/apple/Latex_prettier/latexindent.pl:']
+"to add any other language support go to https://vimawesome.com/plugin/vim-autoformat
+
+"To format a file
+noremap <F4> :Autoformat<CR>
+
+"To comment a line
+map <leader>' gcc<CR>
+
+
+" ----------------------- EXPERIMENTAL -----------------------
+"cntrl f to insert figure by opening inkscape (from https://github.com/gillescastel/inkscape-figures)
+inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
+nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 
 " Vertically center document when entering insert mode
 " autocmd InsertEnter * norm zz
-
-" Remove trailing whitespace on save
-autocmd BufWritePre * %s/\s\+$//e
-
-autocmd FileType tex,latex,markdown setlocal spell spelllang=en_gb
-
-"Post Startup
-autocmd VimEnter * DiscordUpdatePresence
 
 "TYPEWRITER MODE TEST (NO WORK)
 " map <leader>t zz \| set scrolloff=999
