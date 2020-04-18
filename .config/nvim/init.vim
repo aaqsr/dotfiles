@@ -146,6 +146,7 @@ let g:vimtex_view_method = 'zathura'
 "To hide latex doe unless you on that line to make it better looking
 " set conceallevel=1
 " let g:tex_conceal='abdmg'
+
 "Configuring path to prettiers/formatters
 let g:formatterpath = ['/Users/apple/Latex_prettier/latexindent.pl:']
 "to add any other language support go to https://vimawesome.com/plugin/vim-autoformat
