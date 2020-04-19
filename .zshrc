@@ -3,7 +3,7 @@
 # Colours ; PROMPT
 # Using the powerline at https://github.com/denysdovhan/spaceship-prompt
 # Dont forget to run "npm install -g spaceship-prompt"
-autoload -U colors && colors 
+autoload -U colors && colors
 autoload -U promptinit; promptinit
 prompt spaceship
 
@@ -62,6 +62,9 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 export EDITOR='nvim'
 export VISUAL='nvim'
 
+# -------------------------------------------------------------------------------- #
+# Aliases
+alias ls='exa --long --git'
 # -------------------------------------------------------------------------------- #
 
 # For own scripts
