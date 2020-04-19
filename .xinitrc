@@ -63,7 +63,7 @@ fi
 # }
 
 # Set audio profile in case it doesnt set the correct one
-pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:analog-stereo+input:analog-stereo & 
+pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:analog-stereo+input:analog-stereo &
 
 # SET WALLPAPER AND THEMES
 # If you want it done in .xprofile
@@ -71,11 +71,12 @@ pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:analog-stereo+input:ana
 
 xwallpaper --zoom ~/.config/wall.png    # Sets wallpaper
 
-# wal --theme base16-porple               # Runs wal to set xresources theme 
+# wal --theme base16-porple               # Runs wal to set xresources theme
 # wal -i /home/aaqsr/Pictures/Wallpapers/Nature/derrick-cooper-L505cPnmIds-unsplash.jpg
 # wal -i ~/.config/wall.png #--backend schemer2
-wal -i ~/.config/pywall.png
+# wal -i ~/.config/pywall.png
 # wal --theme base16-eighties
+wal -i ~/.config/wall.png
 
 exec picom &                            # Transparency
 exec dwmbarupdater &                    # For the status bar

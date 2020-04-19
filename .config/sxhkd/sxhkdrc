@@ -1,5 +1,6 @@
 # Key bindings defined by simple x hotkey daemon ie. sxhkd
 # note you need to start it in .xinitrc and install the vim plugin for it to highlight syntax properly
+# ~aaqsr
 
 
 # --------------------- LAUNCH PROGRAMS ---------------------
