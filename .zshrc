@@ -9,6 +9,10 @@ prompt spaceship
 
 # Make it print out the whole path
 SPACESHIP_DIR_TRUNC=0
+# To prevent it from showing vi mode
+SPACESHIP_VI_MODE_SHOW=false
+# To prevent it from showing node.js version number
+SPACESHIP_NODE_SHOW=false
 
 # PROMPT='%F{green}[%F{183}aa %F{81}%/%F{green}]%F{162}%#%f '
 
@@ -64,7 +68,17 @@ export VISUAL='nvim'
 
 # -------------------------------------------------------------------------------- #
 # Aliases
+
+# ls
 alias ls='exa --long --git'
+
+# mac only:
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # to open chrome in a compatible way to linux
+    alias chromium='open -a Google\ Chrome'
+    export BROWSER='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+fi
+
 # -------------------------------------------------------------------------------- #
 
 # For own scripts
@@ -81,3 +95,6 @@ source ~/.cache/wal/colors-tty.sh
 
 # for highlighting requires zsh-syntax-highlighting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# for prompt: starship
+# eval "$(starship init zsh)"
