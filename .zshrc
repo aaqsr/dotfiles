@@ -1,10 +1,12 @@
 # Parts copied from luke smith's old config @ https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52
 
-# Colours ; PROMPT
+# Colours
+autoload -U colors && colors
+
+# PROMPT
+autoload -U promptinit; promptinit
 # Using the powerline at https://github.com/denysdovhan/spaceship-prompt
 # Dont forget to run "npm install -g spaceship-prompt"
-autoload -U colors && colors
-autoload -U promptinit; promptinit
 prompt spaceship
 
 # Make it print out the whole path
