@@ -243,6 +243,11 @@ noremap <F4> :Autoformat<CR>
 map <leader>' gcc<CR>
 
 
+" ----------------------- COMPILE ON <F5> -----------------------
+" html:
+autocmd FileType html nmap <F5> :w \| :!$BROWSER % \| set linebreak<CR>
+
+
 " ----------------------- EXPERIMENTAL -----------------------
 "cntrl f to insert figure by opening inkscape (from https://github.com/gillescastel/inkscape-figures)
 inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
@@ -254,3 +259,5 @@ nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/
 "TYPEWRITER MODE TEST (NO WORK)
 " map <leader>t zz \| set scrolloff=999
 " map <leader>T :set scrolloff=0 \| set linebreak<CR>
+
+" Need to make a zen mode with goyo and line highlighting and auto scrolling hmm
