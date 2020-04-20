@@ -74,12 +74,22 @@ export VISUAL='nvim'
 # ls
 alias ls='exa --long --git'
 
+
+# -------------------------------------------------------------------------------- #
 # mac only:
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # to open chrome in a compatible way to linux
     alias chromium='open -a Google\ Chrome'
+
+    # to set BROWSER to open google chrome properly
     export BROWSER='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 fi
+
+# linux only:
+if [[ $OSTYPE == "linux"* ]]; then
+    export BROWSER=chromium
+fi
+
 
 # -------------------------------------------------------------------------------- #
 
