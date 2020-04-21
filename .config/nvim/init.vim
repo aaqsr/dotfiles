@@ -57,6 +57,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Discord presence cause why not
 Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}
 
+" Markdown preview for live previewing markdown in browser
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+
 call plug#end()
 
 
@@ -179,6 +182,9 @@ let g:vimtex_view_method = 'zathura'
 autocmd BufRead,BufNewFile *.tex set filetype=tex
 
 
+" ----------------------- MARKDOWN -----------------------
+autocmd FileType markdown nmap <F5> :w \| :MarkdownPreview<CR>
+
 " ----------------------- SPLITS -----------------------
 " Splits open to the right and bottom instead of left and top
 set splitbelow splitright
@@ -260,4 +266,5 @@ nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/
 " map <leader>t zz \| set scrolloff=999
 " map <leader>T :set scrolloff=0 \| set linebreak<CR>
 
-" Need to make a zen mode with goyo and line highlighting and auto scrolling hmm
+" Need to make a zen mode with goyo and line highlighting and auto scrolling and limelight hmm
+" Need to set up fzf
