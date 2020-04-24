@@ -113,3 +113,10 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # for prompt: starship
 # eval "$(starship init zsh)"
+
+# to fix zeal docsets https://github.com/zealdocs/zeal/issues/1155#issuecomment-553213420
+zeal-docs-fix() {
+    pushd "$HOME/.local/share/Zeal/Zeal/docsets" >/dev/null || return
+    find . -iname 'react-main*.js' -exec rm '{}' \;
+    popd >/dev/null || exit
+}
