@@ -109,6 +109,9 @@ autocmd BufWritePre * %s/\s\+$//e
 " Set spelling language
 autocmd FileType tex,latex,markdown setlocal spell spelllang=en_gb
 
+" Diables highlighting after a search is over with leader n
+map <leader>n :se nohlsearch<CR>
+
 
 " ----------------------- THEME -----------------------
 " Highlighting for code
@@ -190,8 +193,8 @@ autocmd FileType markdown nmap <F5> :w \| :MarkdownPreview<CR>
 set splitbelow splitright
 
 " Shortcut split opening
-nnoremap <leader>h :split<Space> \| set linebreak<CR>
-nnoremap <leader>v :vsplit<Space> \| set linebreak<CR>
+nnoremap <leader>h :split<Space> <CR>
+nnoremap <leader>v :vsplit<Space> <CR>
 
 " Shortcut split navigation
 " Instead of having to do control w then h j k l, you can just do control h j k l
@@ -251,7 +254,7 @@ map <leader>' gcc<CR>
 
 " ----------------------- COMPILE ON <F5> -----------------------
 " html:
-autocmd FileType html nmap <F5> :w \| :!$BROWSER % \| set linebreak<CR>
+autocmd FileType html nmap <F5> :w \| :!$BROWSER % <CR>
 
 
 " ----------------------- EXPERIMENTAL -----------------------
@@ -264,7 +267,7 @@ nnoremap <C-f> : silent exec '!inkscape-figures edit "'.b:vimtex.root.'/figures/
 
 "TYPEWRITER MODE TEST (NO WORK)
 " map <leader>t zz \| set scrolloff=999
-" map <leader>T :set scrolloff=0 \| set linebreak<CR>
+" map <leader>T :set scrolloff=0 <CR>
 
 " Need to make a zen mode with goyo and line highlighting and auto scrolling and limelight hmm
 " Need to set up fzf

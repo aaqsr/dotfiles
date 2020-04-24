@@ -74,6 +74,9 @@ export VISUAL='nvim'
 # ls
 alias ls='exa --long --git'
 
+# make joplin launch with the gui apps notes:
+alias joplin='joplin --profile ~/.config/joplin-desktop/'
+
 
 # -------------------------------------------------------------------------------- #
 # mac only:
