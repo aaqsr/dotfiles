@@ -17,6 +17,10 @@ mod4 + t
 mod4 + e
 	pcmanfm
 
+# Launch Joplin
+mod4 + j
+	JoplinDesktop.AppImage
+
 # --------------------- LAUNCH OWN SCRIPTS ---------------------
 
 # ToggleMute/Increase/Decrease Volume
