@@ -51,13 +51,19 @@ Plug 'vim-airline/vim-airline'
 "pywal colourscheme support
 Plug 'dylanaraps/wal.vim'
 
+"Tender colourscheme
+Plug 'jacoborus/tender.vim'
+
+"Vscode dark colourscheme
+Plug 'tomasiser/vim-code-dark'
+
 "COC (autocomplete)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "Discord presence cause why not
 Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}
 
-" Markdown preview for live previewing markdown in browser
+"Markdown preview for live previewing markdown in browser
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 call plug#end()
@@ -122,16 +128,28 @@ set belloff=all
 
 " For Neovim 0.1.3 and 0.1.4 - https://github.com/neovim/neovim/pull/2198
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-" set termguicolors
+set termguicolors
+
+" Set 256 colour for terminals
+set t_Co=256
+set t_ut=
 
 " Set theme
-colorscheme wal
+" colorscheme wal
+colorscheme tender
+" colorscheme codedark
+
+" Remove the background that comes with colourscheme for transparency
+hi Normal guibg=NONE ctermbg=NONE
 
 " Airline
 " let g:airline = { 'colorscheme': 'dark' }
 " let g:airline#extensions#tabline#left_alt_sep = '|'
 " let g:airline#extensions#tabline#formatter = 'default'
 " set background=dark
+" let g:airline_theme: 'codedark'
+let g:airline = { 'colorscheme': 'tender' }
+" let g:airline = { 'colorscheme': 'codedark' }
 
 " Airline displays the mode so we don't need to show the mode
 set noshowmode
@@ -148,7 +166,8 @@ let g:rainbow_active = 1
 let g:goyo_width=100
 
 " Shortcut enable goyo by <leader>z
-map <leader>z :Goyo \| set linebreak<CR>
+" map <leader>z :Goyo \| set linebreak<CR>
+map <leader>z :Goyo<CR>
 
 
 " ----------------------- DISCORD PRESENSCE -----------------------
@@ -188,7 +207,8 @@ autocmd BufRead,BufNewFile *.tex set filetype=tex
 " ----------------------- MARKDOWN -----------------------
 autocmd FileType markdown nmap <F5> :w \| :MarkdownPreview<CR>
 
-" ----------------------- SPLITS -----------------------
+
+" ----------------------- SPLITS / TABS -----------------------
 " Splits open to the right and bottom instead of left and top
 set splitbelow splitright
 
@@ -202,6 +222,9 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+
+" Opens a new tab
+nnoremap <leader>t :tabnew <CR>
 
 
 " ----------------------- COC ACTIONS -----------------------
