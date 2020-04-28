@@ -75,8 +75,8 @@ export VISUAL='nvim'
 alias ls='exa --long --git'
 
 # make joplin launch with the gui apps notes:
-alias joplin='joplin --profile ~/.config/joplin-desktop/'
-
+# alias joplin='joplin --profile ~/.config/joplin-desktop/'
+# Use one drvie to sync them
 
 # -------------------------------------------------------------------------------- #
 # mac only:
