@@ -277,7 +277,8 @@ let g:formatterpath = ['/Users/apple/Latex_prettier/latexindent.pl:']
 noremap <F4> :Autoformat<CR>
 
 "To comment a line
-map <leader>' gcc<CR>
+map <leader>/ gcc
+" If not supported then set 'commentstring'
 
 
 " ----------------------- COMPILE ON <F5> -----------------------
