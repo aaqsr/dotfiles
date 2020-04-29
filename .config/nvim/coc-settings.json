@@ -1,12 +1,11 @@
 {
   "suggest.noselect": false,
   "coc.preferences.formatOnSaveFiletypes": [
-    "json",
-    "tex",
-    "py"
   ],
 
-  
+  "python.jediEnabled": false,
+
+
       //-------- Code Spell Checker Configuration --------
     // The Language local to use when spell checking. "en" and "en-GB" are currently supported.
 "cSpell.languageSettings": [
@@ -25,7 +24,7 @@
     { "languageId": "scss",                                "dictionaries": ["fonts", "css"] },
     { "languageId": "tex",				   "dictionaries": ["tex", "companies", "softwareTerms", "misc"]}
 ],
-    
+
     // Controls the maximum number of spelling errors per document.
     "cSpell.maxNumberOfProblems": 100,
 
