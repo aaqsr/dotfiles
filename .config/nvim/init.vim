@@ -267,6 +267,7 @@ let g:coc_global_extensions = [
 "Notes on how to use:
 "Do ':CocCommand snippets.editSnippets' to add custom snippets
 
+" Do 'npx eslint --init' in the shell to set up this file
 
 " ----------------------- PRETTIFIER AND COMMENTER -----------------------
 "Configuring path to prettiers/formatters
