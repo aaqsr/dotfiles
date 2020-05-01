@@ -100,6 +100,12 @@ fi
 export PATH="$HOME/Programming/shell_scripts:$PATH"
 # For go programs
 export PATH="$HOME/go/bin:$PATH"
+# llvm
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+# For compilers to find llvm you may need to set:
+  export LDFLAGS="-L/usr/local/opt/llvm/lib"
+  export CPPFLAGS="-I/usr/local/opt/llvm/include"
 
 # pywal
 # Import colorscheme from 'wal' asynchronously
