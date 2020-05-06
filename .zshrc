@@ -68,11 +68,23 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 export EDITOR='nvim'
 export VISUAL='nvim'
 
+# Coloured Man pages by setting colours for less
+man() {
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    command man "$@"
+}
+
 # -------------------------------------------------------------------------------- #
 # Aliases
 
 # ls
-alias ls='exa --long --git'
+# l for more detail, a for all files even hidden ones, and h for headings; git for some git info
+alias ls='exa -lah --git'
 
 # make joplin launch with the gui apps notes:
 # alias joplin='joplin --profile ~/.config/joplin-desktop/'
