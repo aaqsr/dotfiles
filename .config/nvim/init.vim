@@ -213,8 +213,8 @@ autocmd FileType markdown nmap <F5> :w \| :MarkdownPreview<CR>
 set splitbelow splitright
 
 " Shortcut split opening
-nnoremap <leader>h :split<Space> <CR>
-nnoremap <leader>v :vsplit<Space> <CR>
+nnoremap <leader>h :split<Space> \| :Ex<CR>
+nnoremap <leader>v :vsplit<Space> \| :Ex<CR>
 
 " Shortcut split navigation
 " Instead of having to do control w then h j k l, you can just do control h j k l
@@ -249,6 +249,17 @@ let g:coc_snippet_next = '<tab>'
 function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
 endfunction
 
 "COC (autocomplete) plugins
