@@ -80,6 +80,7 @@ wal -i ~/.config/wall.png
 
 exec picom &                            # Transparency
 exec dwmbarupdater &                    # For the status bar
+exec caps_esc &                         # Executes my script to turn caps into esc
 exec sxhkd &                            # Starts sxhkd (for keybindings and hotkeys)
 
 # START WM
