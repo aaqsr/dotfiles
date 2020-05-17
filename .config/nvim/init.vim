@@ -105,6 +105,10 @@ nnoremap <leader>r :%s//g<Left><Left>
 " Save file as sudo when no sudo permissions
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
+" wrap lines properly
+set wrap
+set linebreak
+
 " j/k will move virtual lines (lines that wrap) instead of having to do gj/gk
 noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
@@ -208,7 +212,7 @@ autocmd BufRead,BufNewFile *.tex set filetype=tex
 autocmd FileType markdown nmap <F5> :w \| :MarkdownPreview<CR>
 
 
-" ----------------------- SPLITS / TABS -----------------------
+" ----------------------- SPLITS / TABS / TERM -----------------------
 " Splits open to the right and bottom instead of left and top
 set splitbelow splitright
 
@@ -224,7 +228,13 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " Opens a new tab
-nnoremap <leader>t :tabnew <CR>
+nnoremap <leader>T :tabnew <CR>
+
+" Opens a small terminal split
+nnoremap <leader>t :10sp <CR> \| :term <CR> I
+
+" Esc in terminal triggers normal mode
+tnoremap <Esc> <C-\><C-n>
 
 
 " ----------------------- COC ACTIONS -----------------------

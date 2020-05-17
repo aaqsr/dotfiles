@@ -123,12 +123,14 @@
       "newcommand",
       "newgeometry",
       "pagebreak",
+      "performant",
       "restoregeometry",
       "roch",
       "subsubsection",
       "textit",
       "unreacted",
-      "usepackage"
+      "usepackage",
+      "virtualised"
     ],
 
     // Specify paths/files to ignore.
