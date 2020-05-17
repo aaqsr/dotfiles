@@ -212,7 +212,7 @@ autocmd BufRead,BufNewFile *.tex set filetype=tex
 autocmd FileType markdown nmap <F5> :w \| :MarkdownPreview<CR>
 
 
-" ----------------------- SPLITS / TABS / TERM -----------------------
+" ----------------------- SPLITS / TABS -----------------------
 " Splits open to the right and bottom instead of left and top
 set splitbelow splitright
 
@@ -230,11 +230,25 @@ map <C-l> <C-w>l
 " Opens a new tab
 nnoremap <leader>T :tabnew <CR>
 
+
+" ----------------------- TERM -----------------------
 " Opens a small terminal split
 nnoremap <leader>t :10sp <CR> \| :term <CR> I
 
 " Esc in terminal triggers normal mode
 tnoremap <Esc> <C-\><C-n>
+
+" git commands in term
+    " status
+tnoremap <localleader>gs <Esc>Igit status<CR>
+    " commit
+tnoremap <localleader>gc <Esc>Igit commit -a
+    " diff
+tnoremap <localleader>gd <Esc>Igit diff
+    " push
+tnoremap <localleader>gp <Esc>Igit push<CR>
+    " pull
+tnoremap <localleader>gP <Esc>Igit pull<CR>
 
 
 " ----------------------- COC ACTIONS -----------------------
