@@ -63,6 +63,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Discord presence cause why not
 Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}
 
+" JSX and TSX colours
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+
 "Markdown preview for live previewing markdown in browser
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
