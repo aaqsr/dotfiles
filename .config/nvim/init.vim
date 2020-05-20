@@ -290,6 +290,14 @@ function! s:show_documentation()
   endif
 endfunction
 
+" Explorer
+" do space e to open the explorer
+nmap <space>e :CocCommand explorer<CR>
+" for opening explorer in floating win (NOT SETUP)
+" nmap <space>f :CocCommand explorer --preset floating<CR>
+autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
+
+
 "COC (autocomplete) plugins
 let g:coc_global_extensions = [
             \ 'coc-snippets',
@@ -302,6 +310,7 @@ let g:coc_global_extensions = [
             \ 'coc-html',
             \ 'coc-eslint',
             \ 'coc-python',
+            \ 'coc-explorer',
             \ ]
 "Notes on how to use:
 "Do ':CocCommand snippets.editSnippets' to add custom snippets
