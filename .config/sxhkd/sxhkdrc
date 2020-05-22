@@ -42,3 +42,7 @@ mod4 + shift + s
 # Take screenshot and save it and copy it to clipboard
 mod4 + s
 	screenshotsave
+
+# Run slock to lock the screen
+mod4 + l
+	slock
