@@ -79,17 +79,17 @@
 
     // Specify file types to spell check.
     "cSpell.enabledLanguageIds": [
-        "csharp",
-        "go",
-        "javascript",
-        "javascriptreact",
-        "markdown",
-        "php",
-        "plaintext",
-        "typescript",
-        "typescriptreact",
-        "yml",
-        "tex"
+      "csharp",
+      "go",
+      "javascript",
+      "javascriptreact",
+      "markdown",
+      "php",
+      "plaintext",
+      "tex",
+      "typescript",
+      "typescriptreact",
+      "yml"
     ],
 
     // Enable / Disable the spell checker.

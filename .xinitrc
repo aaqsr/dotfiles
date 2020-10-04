@@ -9,6 +9,8 @@ usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
+export XSESSION_PID="$$"
+
 # SESSION=${1:-xfce}
 
 # merge in defaults and keymaps
@@ -79,10 +81,11 @@ xwallpaper --zoom ~/.config/wall.png    # Sets wallpaper
 wal -i ~/.config/wall.png
 
 exec picom &                            # Transparency
-exec dwmbarupdater &                    # For the status bar
+# exec dwmbarupdater &                    # For the status bar
 exec caps_esc &                         # Executes my script to turn caps into esc
 exec sxhkd &                            # Starts sxhkd (for keybindings and hotkeys)
+exec lxsession &                        # Starts the lxsession polkit (mostly for virt-manager)
 
 # START WM
 nvidia-settings --load-config-only
-exec dwm
+exec xfwm4
