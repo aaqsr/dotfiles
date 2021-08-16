@@ -13,3 +13,10 @@ curl https://raw.githubusercontent.com/aaqsr/dotfiles/master/setup.sh >> setup.s
 ./setup.sh
 ```
 in your home directory.
+
+# TODO:
+
+- Fix the script, it's broken
+```
+Error: TypeError: status.split is not a function
+```
