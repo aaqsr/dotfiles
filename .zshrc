@@ -1,4 +1,4 @@
-# Parts copied from luke smith's old config @ https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52
+# Part copied from luke smith's old config @ https://gist.github.com/LukeSmithxyz/e62f26e55ea8b0ed41a65912fbebbe52
 
 # Colours
 autoload -U colors && colors
@@ -22,7 +22,15 @@ SPACESHIP_NODE_SHOW=false
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.cache/zsh/history
+export HISTFILE=~/.cache/.zsh_history
+
+# Adding timestamps and Appending History Immediately
+setopt EXTENDED_HISTORY
+setopt INC_APPEND_HISTORY
+export HISTTIMEFORMAT="[%F %T] "
+
+# Remove duplicates when going up in terminal
+setopt HIST_FIND_NO_DUPS
 
 # Basic auto/tab complete:
 autoload -U compinit
@@ -98,6 +106,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     # to set BROWSER to open google chrome properly
     export BROWSER='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+
+    # export llvm from brew
+    export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 fi
 
 # linux only:
@@ -123,11 +134,12 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
 # ( ) # Hide shell job control messages.
-(cat ~/.cache/wal/sequences &)
-source ~/.cache/wal/colors-tty.sh
+# (cat ~/.cache/wal/sequences &)
+# source ~/.cache/wal/colors-tty.sh
 
 # for highlighting requires zsh-syntax-highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # for prompt: starship
 # eval "$(starship init zsh)"
@@ -138,3 +150,16 @@ zeal-docs-fix() {
     find . -iname 'react-main*.js' -exec rm '{}' \;
     popd >/dev/null || exit
 }
+fpath=($fpath "/Users/aaqsr/.zfunctions")
+fpath=($fpath "/Users/aaqsr/.zfunctions")
+fpath=($fpath "/Users/aaqsr/.zfunctions")
+
+
+# For doom emacs
+export PATH="$HOME/.emacs.d/bin:$PATH"
+
+# for flutter
+export PATH="$PATH:/$HOME/prog/flutter/bin"
+
+# for Android Debug Bridge
+export PATH="$PATH:/$HOME/prog/platform-tools"

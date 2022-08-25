@@ -21,6 +21,12 @@ let maplocalleader = "\\"
 "Note on how this just means that maplocalleader is just a single \ and not \\
 
 
+" ----------------------- PRE-PLUGIN CONFIG -----------------------
+
+"" Kills ALE's built in lang server, to prevent conflict with coc.nvim
+let g:ale_disable_lsp = 1
+
+
 " ----------------------- PLUGINS via VIM PLUG -----------------------
 call plug#begin('~/.vim/plugged')
 
@@ -36,7 +42,7 @@ Plug 'kovetskiy/sxhkd-vim'
 "Bracket pair colouriser
 Plug 'luochen1990/rainbow'
 
-"Comment lines with leader + '
+"Comment lines with leader + /
 Plug 'tpope/vim-commentary'
 
 "Center zen mode
@@ -44,6 +50,7 @@ Plug 'junegunn/goyo.vim'
 
 "Format on <F4>
 Plug 'chiel92/vim-autoformat'
+" TODO: Is this even useful?
 
 "The bar at the bottom
 Plug 'vim-airline/vim-airline'
@@ -57,21 +64,63 @@ Plug 'jacoborus/tender.vim'
 "Vscode dark colourscheme
 Plug 'tomasiser/vim-code-dark'
 
+"One dark pro colourscheme
+Plug 'joshdick/onedark.vim'
+
+"vim dark colourscheme
+Plug 'rakr/vim-one'
+
+"gruvbox colourscheme
+Plug 'morhetz/gruvbox'
+
+"embark colourscheme
+Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
+
+"everblush colourscheme
+Plug 'mangeshrex/everblush.vim'
+
+"onehalf colourscheme
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+
 "COC (autocomplete)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "Discord presence cause why not
 Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}
 
-" JSX and TSX colours
+"JSX and TSX colours
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
-" Auto Complete XML and HTML tags in .html and .jsx files
+"Auto Complete XML and HTML tags in .html and .jsx files
 Plug 'alvan/vim-closetag'
 
 "Markdown preview for live previewing markdown in browser
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+
+"C/C++ syntax highlighting following the guide here: https://chmanie.com/post/2020/07/17/modern-c-development-in-neovim/
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+Plug 'octol/vim-cpp-enhanced-highlight'
+"plus linting
+" Plug 'vim-syntastic/syntastic'
+" TODO: Update the removal of this as syntastic is deprecated
+" TODO: Find replacement
+Plug 'rhysd/vim-clang-format'
+
+"Racket plugins
+Plug 'benknoble/vim-racket'
+
+"A general REPL plugin
+Plug 'rhysd/reply.vim', { 'on': ['Repl', 'ReplAuto'] }
+
+"For Rust development
+Plug 'rust-lang/rust.vim'
+
+"ALE for extra linting with coc.nvim
+Plug 'dense-analysis/ale'
+
+" Dev Icons - Load this last
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -92,6 +141,9 @@ set cindent
 set tabstop=4
 set shiftwidth=4
 set expandtab
+
+" Set encoding to utf-8
+set encoding=UTF-8
 
 " Hide a buffer when a new one is opened on top instead of closing
 set hidden
@@ -133,22 +185,35 @@ map <leader>n :se nohlsearch<CR>
 " ----------------------- THEME -----------------------
 " Highlighting for code
 syntax on
+" something rust.vim made me do
+filetype plugin indent on
 
 " Get rid of the annoying bell
 set belloff=all
 
 " For Neovim 0.1.3 and 0.1.4 - https://github.com/neovim/neovim/pull/2198
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-set termguicolors
 
 " Set 256 colour for terminals
 set t_Co=256
 set t_ut=
 
+" for true color support
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
 " Set theme
 " colorscheme wal
-colorscheme tender
+" colorscheme tender
 " colorscheme codedark
+" colorscheme onedark
+" colorscheme gruvbox
+" colorscheme one
+" colorscheme embark
+colorscheme onehalfdark
 
 " Remove the background that comes with colourscheme for transparency
 hi Normal guibg=NONE ctermbg=NONE
@@ -157,10 +222,13 @@ hi Normal guibg=NONE ctermbg=NONE
 " let g:airline = { 'colorscheme': 'dark' }
 " let g:airline#extensions#tabline#left_alt_sep = '|'
 " let g:airline#extensions#tabline#formatter = 'default'
-" set background=dark
-" let g:airline_theme: 'codedark'
-let g:airline = { 'colorscheme': 'tender' }
+set background=dark
+" let g:airline_theme = 'codedark'
+" let g:airline = { 'colorscheme': 'tender' }
 " let g:airline = { 'colorscheme': 'codedark' }
+" let g:airline_theme = 'gruvbox'
+" let g:airline_theme='one'
+let g:airline_theme='embark'
 
 " Airline displays the mode so we don't need to show the mode
 set noshowmode
@@ -171,6 +239,15 @@ let g:rainbow_active = 1
 " Highlights the current line you are on
 " set cursorline
 " highlight CursorLine guibg=#191919
+
+
+
+
+" ----------------------- GOYO -----------------------
+
+if exists("g:neovide")
+    set guifont=FiraCode\ Nerd\ Font:h13
+endif
 
 
 " ----------------------- GOYO -----------------------
@@ -229,10 +306,10 @@ nnoremap <leader>v :vsplit<Space> \| :Ex<CR>
 
 " Shortcut split navigation
 " Instead of having to do control w then h j k l, you can just do control h j k l
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+map <leader>wh <C-w>h
+map <leader>wj <C-w>j
+map <leader>wk <C-w>k
+map <leader>wl <C-w>l
 
 " Opens a new tab
 nnoremap <leader>T :tabnew <CR>
@@ -338,6 +415,16 @@ map <leader>/ gcc
 autocmd FileType html nmap <F5> :w \| :!$BROWSER % <CR>
 
 
+
+" ----------------------- Vim REPL keybinds -----------------------
+"
+"  If you ever want to set a max width https://github.com/rhysd/reply.vim
+
+" Works with repl then returns to the previous window
+map <localleader>rr :Repl <CR> <Esc> <C-w>p
+map <localleader>rs :ReplSend <CR> <Esc> <C-w>p
+
+
 " ----------------------- vim-closetag -----------------------
 "  Autocomplets html, xml tags
 " filenames like *.xml, *.html, *.xhtml, ...
@@ -378,8 +465,70 @@ let g:closetag_regions = {
 let g:closetag_shortcut = '>'
 
 " Add > at current position without closing the current tag, default is ''
-"
-let g:closetag_close_shortcut = '<leader>>'
+" Do not set this to <leader> > as the docs suggest as that maps <leader>
+" (space) in insert mode, which makes inserting a space sluggish and slow
+let g:closetag_close_shortcut = ''
+
+" ----------------------- C/C++ Syntaxing ---------------------
+
+" c++ syntax highlighting
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+
+" linting
+let g:syntastic_cpp_checkers = ['cpplint']
+let g:syntastic_c_checkers = ['cpplint']
+let g:syntastic_cpp_cpplint_exec = 'cpplint'
+" The following two lines are optional. Configure it to your liking!
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" to format on save
+let b:ale_fix_on_save = 1
+
+
+
+" formatting : vim-cpp-enhanced-highlight
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+
+" Either one for functions
+" slower but better
+let g:cpp_experimental_simple_template_highlight = 1
+" faster but worse
+" let g:cpp_experimental_template_highlight = 1
+
+let g:cpp_concepts_highlight = 1
+
+
+" ----------------------- RACKET -----------------------
+
+" For Racket synstax checking
+" Note:
+" WARNING: THIS IS A SECURITY ISSUE AS VIM EXECS RACKET CODE ON FILE SAVE
+" BE VERY CAREFUL OF RACKET SCRIPTS ONLINE
+" I DIDN'T WANT TO DO THIS SO IT IS SET TO 0 FOR NOW
+" NEED TO FIND A WAY TO FIX THIS
+
+let g:syntastic_enable_racket_racket_checker = 0
+
+" UPDATE: ACCORDING TO THIS POST https://logc.github.io/blog/2016/09/23/racket-and-vim-syntastic/
+" THIS HAS BEEN FIXED AS LONG AS ONE USES THIS LINE
+" But i don't trust it
+
+" let g:syntastic_racket_racket_args="--load"
+
+" Adds the racket executable itself as a racket checker
+" let g:syntastic_racket_checkers = "racket"
+
+
+" ----------------------- RUST -----------------------
+
+" For autoformatting on save
+let g:rustfmt_autosave = 1
 
 
 " ----------------------- EXPERIMENTAL -----------------------

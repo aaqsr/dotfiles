@@ -1,8 +1,21 @@
 {
+        "initializationOptions": {
+      // ...
+      // This will re-index the file on buffer change which is definitely a performance hit. See if it works for you
+      "index": {
+        "onChange": true
+      },
+      // This is mandatory!
+      "highlight": { "lsRanges" : true }
+    },
+
+
     "suggest.noselect": false,
     "coc.preferences.formatOnSaveFiletypes": [],
 
     "python.jediEnabled": false,
+
+    "diagnostic.displayByAle": true,
 
 
     //-------- Code Spell Checker Configuration --------
@@ -172,6 +185,52 @@
         "'",
         "\"",
         "`"
-    ]
+    ],
 
+
+    "rust-analyzer.checkOnSave.command": "clippy",
+
+    "languageserver": {
+
+    "racket": {
+      "command": "racket",
+      "args": [
+        "-l",
+        "racket-langserver"
+      ],
+      "filetypes": ["scheme", "racket","rkt"],
+      "initializationOptions": {
+         "index": {
+            "onChange": true
+          }
+      }
+    },
+
+    // language server set up for C/C++ following this guide here https://chmanie.com/post/2020/07/17/modern-c-development-in-neovim/
+    "clangd": {
+      "command": "clangd",
+      "rootPatterns": [
+        "compile_flags.txt",
+        "compile_commands.json",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
+      "filetypes": ["c", "cpp", "objc", "objcpp", "cuda", "arduino"],
+      "initializationOptions": {
+              // This will re-index the file on buffer change which is definitely a performance hit. See if it works for you
+          "index": {
+            "onChange": true
+          },
+          // This is mandatory!
+          "highlight": { "lsRanges" : true },
+             "cache": {
+               "directory": "/tmp/ccls"
+             },
+             "client": {
+              "snippetSupport": true
+             }
+      }
+    }
+  }
 }
