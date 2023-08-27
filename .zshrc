@@ -187,10 +187,10 @@ alias neofetch='neofetch --ascii_distro arch'
 # DEPENDS ON FZF
 # SOURCE https://gist.github.com/elijahmanor/b279553c0132bfad7eae23e34ceb593b
 
-alias nvim-old="NVIM_APPNAME=old nvim"
+alias nvim-old="NVIM_APPNAME=nvim-old nvim"
 
-function nvims() {
-  items=("default" "old")
+function nvim-switch() {
+  items=("default" "nvim-old")
   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
   if [[ -z $config ]]; then
     echo "Nothing selected"
@@ -198,7 +198,7 @@ function nvims() {
   elif [[ $config == "default" ]]; then
     config=""
   fi
-  # $@ just adds any positional args you input
+  # $@ just adds any positional args you input such as a file name that you want to open
   NVIM_APPNAME=$config nvim $@
 }
 
