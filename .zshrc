@@ -202,3 +202,5 @@ function nvim-switch() {
   NVIM_APPNAME=$config nvim $@
 }
 
+alias nvims=nvim-switch
+
