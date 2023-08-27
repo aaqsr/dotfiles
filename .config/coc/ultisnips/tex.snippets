@@ -77,8 +77,28 @@ endsnippet
 # \\frac{$1}{$2}$0
 # endsnippet
 
-snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction of form 3/ -> \frac{3}{}" wrA
+################################################################################
+# Fractions using regex and // from https://gist.github.com/lucasgruwez/ac0ee45c2b5da289fa1b11f594525578
+################################################################################
+
+priority 100
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
 \\frac{`!p snip.rv = match.group(1)`}{$1}$0
+endsnippet
+
+priority 1000
+snippet '^.*\)/' "() Fraction" wrA
+`!p
+stripped = match.string[:-1]
+depth = 0
+i = len(stripped) - 1
+while True:
+	if stripped[i] == ')': depth += 1
+	if stripped[i] == '(': depth -= 1
+	if depth == 0: break;
+	i -= 1
+snip.rv = stripped[0:i] + "\\frac{" + stripped[i+1:-1] + "}"
+`{$1}$0
 endsnippet
 
 snippet m; "Inserts multiply sign" A

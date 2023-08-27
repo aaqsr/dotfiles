@@ -94,6 +94,13 @@ man() {
 # l for more detail, a for all files even hidden ones, and h for headings; git for some git info
 alias ls='exa -lah --git'
 
+# search through text files in a directory using rip-grep
+alias search='rg -S' # some string, some directory
+
+alias cat='bat' # better rust tool for cat
+
+alias wikipedia='wiki-tui'
+
 # make joplin launch with the gui apps notes:
 # alias joplin='joplin --profile ~/.config/joplin-desktop/'
 # Use one drvie to sync them
@@ -139,6 +146,7 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # for highlighting requires zsh-syntax-highlighting
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# https://github.com/zsh-users/zsh-syntax-highlighting
 source /opt/homebrew/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # for prompt: starship
@@ -163,3 +171,14 @@ export PATH="$PATH:/$HOME/prog/flutter/bin"
 
 # for Android Debug Bridge
 export PATH="$PATH:/$HOME/prog/platform-tools"
+
+[ -f "/Users/aaqsr/.ghcup/env" ] && source "/Users/aaqsr/.ghcup/env" # ghcup-env
+export PATH="$PATH:$HOME/.local/bin"
+
+# export STACK_YAML="$HOME/.config/stack.yaml"
+
+export PATH="$PATH:/usr/local/texlive/2022/bin/universal-darwin"
+
+export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
+
+alias neofetch='neofetch --ascii_distro arch'

@@ -30,6 +30,9 @@ let g:ale_disable_lsp = 1
 " ----------------------- PLUGINS via VIM PLUG -----------------------
 call plug#begin('~/.vim/plugged')
 
+"For completing matching brackets
+Plug 'jiangmiao/auto-pairs'
+
 "Displays colours (like #FFFFFF) as colours
 Plug 'ap/vim-css-color'
 
@@ -92,8 +95,14 @@ Plug 'aurieh/discord.nvim', { 'do': ':UpdateRemotePlugins'}
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
+"For Prisma, the ORM
+Plug 'prisma/vim-prisma'
+
 "Auto Complete XML and HTML tags in .html and .jsx files
 Plug 'alvan/vim-closetag'
+
+"For CSV file editing
+Plug 'chrisbra/csv.vim'
 
 "Markdown preview for live previewing markdown in browser
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
@@ -108,7 +117,8 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rhysd/vim-clang-format'
 
 "Racket plugins
-Plug 'benknoble/vim-racket'
+" Plug 'benknoble/vim-racket'
+Plug 'wlangstroth/vim-racket'
 
 "A general REPL plugin
 Plug 'rhysd/reply.vim', { 'on': ['Repl', 'ReplAuto'] }
@@ -121,6 +131,11 @@ Plug 'dense-analysis/ale'
 
 " Dev Icons - Load this last
 Plug 'ryanoasis/vim-devicons'
+
+" Lua plugins:  (WIP)
+
+" Gives a pop up of key binds as you type
+" Plug 'folke/which-key.nvim' https://github.com/folke/which-key.nvim
 
 call plug#end()
 
@@ -135,11 +150,11 @@ augroup numbertoggle
 augroup END
 
 " Fix/eliminate tabs
-set softtabstop=4
+set softtabstop=2
 set smarttab
 set cindent
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set expandtab
 
 " Set encoding to utf-8
@@ -157,6 +172,11 @@ set mouse=a
 
 " Use system clipboard instead of registers (sorry xxx_pro_vim_users_xxx)
 set clipboard+=unnamedplus
+
+" Sets directory for undo files (actually vv important undo doesn't work
+" elsewise) EDIT: nvm doesn't actually do what i want it to do
+" set undofile
+" set undodir=$HOME
 
 " Writes out the replace all command
 nnoremap <leader>r :%s//g<Left><Left>
@@ -179,7 +199,7 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd FileType tex,latex,markdown setlocal spell spelllang=en_gb
 
 " Diables highlighting after a search is over with leader n
-map <leader>n :se nohlsearch<CR>
+map <localleader>r :se nohlsearch<CR>
 
 
 " ----------------------- THEME -----------------------
@@ -230,6 +250,10 @@ set background=dark
 " let g:airline_theme='one'
 let g:airline_theme='embark'
 
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#wordcount#filetypes = '\vasciidoc|help|mail|markdown|markdown.pandoc|org|rst|tex|text|txt|temp'
+set laststatus=2    " enables vim-airline.
+
 " Airline displays the mode so we don't need to show the mode
 set noshowmode
 
@@ -243,10 +267,21 @@ let g:rainbow_active = 1
 
 
 
-" ----------------------- GOYO -----------------------
+" ----------------------- Neovide Client -----------------------
 
 if exists("g:neovide")
-    set guifont=FiraCode\ Nerd\ Font:h13
+    " Font and size
+    set guifont=FiraCode\ Nerd\ Font:h14
+
+    " Fullscreen
+    " let g:neovide_fullscreen=v:true
+
+    " Changes default cursor animation
+    let g:neovide_cursor_vfx_mode = "pixiedust"
+
+    " use meta instead of weird alt thing mac does
+    let g:neovide_input_macos_alt_is_meta=v:true
+
 endif
 
 
@@ -262,10 +297,10 @@ map <leader>z :Goyo<CR>
 let g:discord_activate_on_enter=1
 
 " Shortcut update discord presence by <leader><F2>
-map <leader><F2> :DiscordUpdatePresence <CR>
+" map <leader><F2> :DiscordUpdatePresence <CR>
 
 "Post Startup
-autocmd VimEnter * DiscordUpdatePresence
+" autocmd VimEnter * DiscordUpdatePresence
 
 
 " ----------------------- VIMTEX -----------------------
@@ -344,14 +379,24 @@ endfunction
 " Shortcut open COC menu by <leader>a
 map <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
 
-" Use tab to switch between coc snippet placeholders
+" Map <tab> for trigger completion, completion confirm, snippet expand and
+" jump like VSCode.
+" https://github.com/neoclide/coc.nvim/blob/e1a4ce4d95d1d89b6dd31019cc4387425aa09b86/doc/coc.txt#L892-L909
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 inoremap <silent><expr> <TAB>
-            \ pumvisible() ? coc#_select_confirm() :
-            \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ coc#refresh()
+      \ pumvisible() ? coc#_select_confirm() : coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" : '<TAB>'
+      " \ <SID>check_back_space() ? "\<TAB>" :
+      " \ coc#refresh()
 
 let g:coc_snippet_next = '<tab>'
+
+" Use enter instead lmao
+" inoremap <expr> <cr> pumvisible() ? '<c-y>' : '<cr>'
 
 "
 function! s:check_back_space() abort

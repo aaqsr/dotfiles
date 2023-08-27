@@ -1,5 +1,5 @@
 {
-        "initializationOptions": {
+    "initializationOptions": {
       // ...
       // This will re-index the file on buffer change which is definitely a performance hit. See if it works for you
       "index": {
@@ -198,39 +198,65 @@
         "-l",
         "racket-langserver"
       ],
-      "filetypes": ["scheme", "racket","rkt"],
+      "filetypes": ["scheme", "rkt", "racket", "lazy"],
       "initializationOptions": {
          "index": {
             "onChange": true
           }
       }
-    },
-
-    // language server set up for C/C++ following this guide here https://chmanie.com/post/2020/07/17/modern-c-development-in-neovim/
-    "clangd": {
-      "command": "clangd",
-      "rootPatterns": [
-        "compile_flags.txt",
-        "compile_commands.json",
-        ".vim/",
-        ".git/",
-        ".hg/"
-      ],
-      "filetypes": ["c", "cpp", "objc", "objcpp", "cuda", "arduino"],
-      "initializationOptions": {
-              // This will re-index the file on buffer change which is definitely a performance hit. See if it works for you
-          "index": {
-            "onChange": true
-          },
-          // This is mandatory!
-          "highlight": { "lsRanges" : true },
-             "cache": {
-               "directory": "/tmp/ccls"
-             },
-             "client": {
-              "snippetSupport": true
-             }
-      }
     }
-  }
+
+//  "haskell": {
+//        "command": "haskell-language-server-wrapper",
+//        "args": [
+//          "--lsp"
+//        ],
+//    //  "rootPatterns": [
+//    //    ".stack.yaml",
+//    //    ".hie-bios",
+//    //    "BUILD.bazel",
+//    //    "cabal.config",
+//    //    "package.yaml"
+//    //  ],
+//        "filetypes": [
+//          "hs",
+//          "lhs",
+//          "haskell"
+//        ],
+//    "initializationOptions": {
+//      "languageServerHaskell": {
+//        "hlintOn": true,
+//        "maxNumberOfProblems": 10,
+//        "completionSnippetsOn": true
+//      }
+//    }
+//      }
+    // language server set up for C/C++ following this guide here https://chmanie.com/post/2020/07/17/modern-c-development-in-neovim/
+    // "clangd": {
+    // "command": "clangd",
+    // "rootPatterns": [
+    //   "compile_flags.txt",
+    //   "compile_commands.json",
+    //   ".vim/",
+    //   ".git/",
+    //   ".hg/"
+    // ],
+    // "filetypes": ["c", "cpp", "objc", "objcpp", "cuda", "arduino"],
+    // "initializationOptions": {
+    //         // This will re-index the file on buffer change which is definitely a performance hit. See if it works for you
+    //     "index": {
+    //       "onChange": true
+    //     },
+    //     // This is mandatory!
+    //     "highlight": { "lsRanges" : true },
+    //        "cache": {
+    //          "directory": "/tmp/ccls"
+    //        },
+    //        "client": {
+    //         "snippetSupport": true
+    //        }
+    //  }
+    // }
+  },
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/15.0.6/clangd_15.0.6/bin/clangd"
 }
