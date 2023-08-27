@@ -182,3 +182,23 @@ export PATH="$PATH:/usr/local/texlive/2022/bin/universal-darwin"
 export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin"
 
 alias neofetch='neofetch --ascii_distro arch'
+
+# NEOVIM CONFIG SWITCHER
+# DEPENDS ON FZF
+# SOURCE https://gist.github.com/elijahmanor/b279553c0132bfad7eae23e34ceb593b
+
+alias nvim-old="NVIM_APPNAME=old nvim"
+
+function nvims() {
+  items=("default" "old")
+  config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
+  if [[ -z $config ]]; then
+    echo "Nothing selected"
+    return 0
+  elif [[ $config == "default" ]]; then
+    config=""
+  fi
+  # $@ just adds any positional args you input
+  NVIM_APPNAME=$config nvim $@
+}
+
