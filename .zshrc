@@ -204,3 +204,40 @@ function nvim-switch() {
 
 alias nvims=nvim-switch
 
+# Java moment
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+. "$HOME/.cargo/env"
+
+# >>> JVM installed by coursier >>>
+export JAVA_HOME="/Users/aaqsr/Library/Caches/Coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_mac_hotspot_8u292b10.tar.gz/jdk8u292-b10/Contents/Home"
+# <<< JVM installed by coursier <<<
+
+# >>> coursier install directory >>>
+export PATH="$PATH:/Users/aaqsr/Library/Application Support/Coursier/bin"
+# <<< coursier install directory <<<
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+##
+# Your previous /Users/aaqsr/.zprofile file was backed up as /Users/aaqsr/.zprofile.macports-saved_2022-03-25_at_16:15:53
+##
+
+# MacPorts Installer addition on 2022-03-25_at_16:15:53: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+
+# MacPorts Installer addition on 2022-03-25_at_16:15:53: adding an appropriate MANPATH variable for use with MacPorts.
+export MANPATH="/opt/local/share/man:$MANPATH"
+# Finished adapting your MANPATH environment variable for use with MacPorts.
+
+
+# >>> JVM installed by coursier >>>
+export JAVA_HOME="/Users/aaqsr/Library/Caches/Coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_mac_hotspot_8u292b10.tar.gz/jdk8u292-b10/Contents/Home"
+# <<< JVM installed by coursier <<<
+
+# >>> coursier install directory >>>
+export PATH="$PATH:/Users/aaqsr/Library/Application Support/Coursier/bin"
+# <<< coursier install directory <<<
+
