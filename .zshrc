@@ -116,6 +116,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     # export llvm from brew
     export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+
+    # finder
+    alias finder="open"
 fi
 
 # linux only:
@@ -190,7 +193,7 @@ alias neofetch='neofetch --ascii_distro arch'
 alias nvim-old="NVIM_APPNAME=nvim-old nvim"
 
 function nvim-switch() {
-  items=("default" "nvim-old")
+  items=("default" "nvim-old" "nvim-avish")
   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
   if [[ -z $config ]]; then
     echo "Nothing selected"
@@ -240,4 +243,10 @@ export JAVA_HOME="/Users/aaqsr/Library/Caches/Coursier/arc/https/github.com/Adop
 # >>> coursier install directory >>>
 export PATH="$PATH:/Users/aaqsr/Library/Application Support/Coursier/bin"
 # <<< coursier install directory <<<
+
+# C++
+# source ~/cs246e/setup
+alias g++20m="g++-11 -std=c++20 -fmodules-ts -Wall -g"
+alias g++20h="g++-11 -std=c++20 -fmodules-ts -c -x c++-system-header"
+alias g++20i="g++-11 -std=c++20 -Wall -g"
 

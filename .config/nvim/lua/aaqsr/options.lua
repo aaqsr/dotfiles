@@ -24,7 +24,7 @@ local options = {
 
   numberwidth = 2,       -- the width of the number column
   signcolumn = 'yes',    -- show signs in signcolumn
-  -- laststatus = 3, -- global statusline, thanks Neovim team :-)
+  laststatus = 3, -- global statusline, thanks Neovim team :-)
 
   tabstop = 2,
   cindent = true, -- for C files, which I do not write right now.
@@ -45,11 +45,13 @@ local options = {
   autoindent = true,   -- this should absolutely always be on
   smartindent = true,  -- so should this.
 
-  scrolloff = 10,       -- like sidescrolloff but for the bottom side
+  scrolloff = 15,       -- like sidescrolloff but for the bottom side
 
   updatetime = 50,
 
   equalalways = false, -- all windows are made the same size after opening or closing
+
+  showmode = false,  -- statusline shows the mode so we don't need to see it
 }
 
 for k, v in pairs(options) do

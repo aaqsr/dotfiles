@@ -22,6 +22,7 @@ return {
       "eslint",
       "rust_analyzer",
       "clangd",
+      'pyright',
       "lua_ls"
     })
 
@@ -61,7 +62,23 @@ return {
     end)
 
     -- (Optional) Configure lua language server for neovim
-    require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+    require('lspconfig').lua_ls.setup({
+      settings = {
+        Lua = {
+          -- make the language server recognize "vim" global
+          diagnostics = {
+            globals = { "vim" },
+          },
+          workspace = {
+            -- make language server aware of runtime files
+            library = {
+              [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+              [vim.fn.stdpath("config") .. "/lua"] = true,
+            },
+          },
+        },
+      }
+    })
 
     lsp.setup()
 

@@ -1,9 +1,9 @@
 return {
-  'nvim-telescope/telescope.nvim', tag = '0.1.2',
--- or                              , branch = '0.1.x',
+  'nvim-telescope/telescope.nvim',
+  tag = '0.1.2',
+  -- or                              , branch = '0.1.x',
   dependencies = { 'nvim-lua/plenary.nvim' },
-  config = function() 
-
+  config = function()
     local builtin = require('telescope.builtin')
     local wk = require("which-key")
 
@@ -39,8 +39,9 @@ return {
     vim.keymap.set('n', '<leader>fgf', builtin.git_files, { desc = "Search files in repo" })
     vim.keymap.set('n', '<leader>fgs', builtin.git_status, { desc = "Git status" })
 
-    local actions = require('telescope.actions')
-    require('telescope').setup {
+    -- local actions = require('telescope.actions')
+    local tele = require('telescope')
+    tele.setup {
       prompt_prefix = ' ',
       selection_caret = ' ',
       path_display = { 'smart' },
@@ -57,8 +58,13 @@ return {
           theme = 'ivy',
           hijack_netrw = true,
         },
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown {
+            -- even more opts
+          }
+        }
       },
     }
+    tele.load_extension("ui-select")
   end
 }
-
