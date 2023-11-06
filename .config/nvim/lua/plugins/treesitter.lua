@@ -1,20 +1,20 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
-  config = function () 
+  config = function ()
     local configs = require("nvim-treesitter.configs")
 
     configs.setup({
-      ensure_installed = { 
-        "c", 
-        "lua", 
-        "vim", 
-        "vimdoc", 
-        "query", 
-        "cpp", 
-        "css", 
-        "javascript", 
-        "typescript", 
+      ensure_installed = {
+        "c",
+        "lua",
+        "vim",
+        "vimdoc",
+        "query",
+        "cpp",
+        "css",
+        "javascript",
+        "typescript",
         "html",
         "rust",
         "scala",
@@ -27,7 +27,7 @@ return {
       },
       sync_install = false,
       highlight = { enable = true },
-      indent = { enable = true },  
+      indent = { enable = true },
       -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
       auto_install = true,
 
@@ -41,7 +41,13 @@ return {
 --     end,
 
       additional_vim_regex_highlighting = false,
+
     })
+
+    -- foldz
+    vim.api.nvim_command("set foldmethod=expr")
+    vim.api.nvim_command("set foldexpr=nvim_treesitter#foldexpr()")
+    vim.api.nvim_command("set nofoldenable")
   end
 }
 

@@ -21,6 +21,14 @@ vim.keymap.set("n", "<leader>wj", "<C-w>j", opts_with_desc("Switch to down windo
 vim.keymap.set("n", "<leader>wk", "<C-w>k", opts_with_desc("Switch to top window"))
 vim.keymap.set("n", "<leader>wl", "<C-w>l", opts_with_desc("Switch to right window"))
 
+vim.keymap.set("n", "<C-h>", "<C-w>h", opts_with_desc("Switch to left window"))
+vim.keymap.set("n", "<C-j>", "<C-w>j", opts_with_desc("Switch to down window"))
+vim.keymap.set("n", "<C-k>", "<C-w>k", opts_with_desc("Switch to top window"))
+vim.keymap.set("n", "<C-l>", "<C-w>l", opts_with_desc("Switch to right window"))
+
+-- Remove the ZQ keybind just in case
+vim.keymap.set("n", "ZQ", " ")
+
 -- Tabs
 vim.keymap.set("n", "<leader>T", vim.cmd.tabnew, { silent = true, desc = "Open a new tab" })
 

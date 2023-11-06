@@ -119,6 +119,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     # finder
     alias finder="open"
+
+    # sdl2
+    export PATH="/opt/homebrew/Cellar/sdl2/:$PATH"
+    # brew 
+    export LIBRARY_PATH="$LIBRARY_PATH:$(brew --prefix)/lib"
 fi
 
 # linux only:
@@ -151,6 +156,11 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # https://github.com/zsh-users/zsh-syntax-highlighting
 source /opt/homebrew/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# for auto-suggestions Requires zsh-autosuggestions
+# just install it via brew 
+# brew install zsh-autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # for prompt: starship
 # eval "$(starship init zsh)"
@@ -235,7 +245,6 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 export MANPATH="/opt/local/share/man:$MANPATH"
 # Finished adapting your MANPATH environment variable for use with MacPorts.
 
-
 # >>> JVM installed by coursier >>>
 export JAVA_HOME="/Users/aaqsr/Library/Caches/Coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_mac_hotspot_8u292b10.tar.gz/jdk8u292-b10/Contents/Home"
 # <<< JVM installed by coursier <<<
@@ -246,7 +255,14 @@ export PATH="$PATH:/Users/aaqsr/Library/Application Support/Coursier/bin"
 
 # C++
 # source ~/cs246e/setup
-alias g++20m="g++-11 -std=c++20 -fmodules-ts -Wall -g"
-alias g++20h="g++-11 -std=c++20 -fmodules-ts -c -x c++-system-header"
-alias g++20i="g++-11 -std=c++20 -Wall -g"
+alias g++20m="g++-13 -std=c++20 -fmodules-ts -Wall -g"
+alias g++20h="g++-13 -std=c++20 -fmodules-ts -c -x c++-system-header"
+alias g++20i="g++-13 -std=c++20 -Wall -g"
+alias g++-13="/opt/homebrew/Cellar/gcc/13.2.0/bin/g++-13"
 
+alias clangdconfig="nvim ~/Library/Preferences/clangd/config.yaml"
+
+# Get the weather!
+alias weather="curl wttr.in/"
+alias weather_uw="curl wttr.in/~waterloo+canada"
+alias forecast="curl wttr.in/"

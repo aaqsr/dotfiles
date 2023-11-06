@@ -2,6 +2,15 @@ return {
   'VonHeikemen/lsp-zero.nvim',
   branch = 'v2.x',
   dependencies = {
+    -- Breadcrumbs and go to code section support
+    {
+      "SmiteshP/nvim-navbuddy",
+      dependencies = {
+        { "SmiteshP/nvim-navic", opts = { lsp = { auto_attach = true } } },
+        "MunifTanjim/nui.nvim"
+      },
+      opts = { lsp = { auto_attach = true } }
+    },
     -- LSP Support
     { 'neovim/nvim-lspconfig' },             -- Required
     { 'williamboman/mason.nvim' },           -- Optional
@@ -10,9 +19,15 @@ return {
     -- Autocompletion
     { 'hrsh7th/nvim-cmp' },     -- Required
     { 'hrsh7th/cmp-nvim-lsp' }, -- Required
-    { 'L3MON4D3/LuaSnip' },     -- Required
+    {
+      'L3MON4D3/LuaSnip',
+      dependencies = { "rafamadriz/friendly-snippets" },
+    }, -- Required
   },
   config = function()
+    -- set up breadcrumbs real quick (also see lua-line for more)
+    vim.keymap.set("n", "<leader>N", vim.cmd.Navbuddy, { silent = true, desc = "Open Code Navigation Menu" })
+
     local lsp = require('lsp-zero').preset({})
 
     lsp.preset("recommended")
@@ -34,8 +49,8 @@ return {
       }
     })
 
-    vim.keymap.set("n", "<Space>ll", vim.cmd.LspInstall, { silent = true, desc = "Install LSP" })
-    vim.keymap.set("n", "<Space>lm", vim.cmd.Mason, { silent = true, desc = "Open Mason (LSP manager)" })
+    vim.keymap.set("n", "<leader>ll", vim.cmd.LspInstall, { silent = true, desc = "Install LSP" })
+    vim.keymap.set("n", "<leader>lm", vim.cmd.Mason, { silent = true, desc = "Open Mason (LSP manager)" })
 
     lsp.on_attach(function(client, bufnr)
       -- see :help lsp-zero-keybindings
@@ -45,19 +60,19 @@ return {
 
       vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
       vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-      vim.keymap.set("n", "<Space>lk", function() vim.lsp.buf.hover() end,
+      vim.keymap.set("n", "<leader>lk", function() vim.lsp.buf.hover() end,
         { buffer = bufnr, remap = false, desc = "Show definition in float (also on K)" })
-      vim.keymap.set("n", "<Space>ld", function() vim.lsp.buf.definition() end,
+      vim.keymap.set("n", "<leader>ld", function() vim.lsp.buf.definition() end,
         { buffer = bufnr, remap = false, desc = "Go to definition (also on gd)" })
-      vim.keymap.set("n", "<Space>le", function() vim.diagnostic.open_float() end,
+      vim.keymap.set("n", "<leader>le", function() vim.diagnostic.open_float() end,
         { buffer = bufnr, remap = false, desc = "Show errors" })
-      vim.keymap.set("n", "<Space>lr", function() vim.lsp.buf.references() end,
+      vim.keymap.set("n", "<leader>lR", function() vim.lsp.buf.references() end,
         { buffer = bufnr, remap = false, desc = "Open references to object" })
-      vim.keymap.set("n", "<Space>lR", function() vim.lsp.buf.rename() end,
+      vim.keymap.set("n", "<leader>lr", function() vim.lsp.buf.rename() end,
         { buffer = bufnr, remap = false, desc = "Rename symbol" })
-      vim.keymap.set("n", "<Space>la", function() vim.lsp.buf.code_action() end,
+      vim.keymap.set("n", "<leader>la", function() vim.lsp.buf.code_action() end,
         { buffer = bufnr, remap = false, desc = "Show code actions" })
-      vim.keymap.set("n", "<Space>lf", function() vim.cmd.LspZeroFormat() end,
+      vim.keymap.set("n", "<leader>lf", function() vim.cmd.LspZeroFormat() end,
         { buffer = bufnr, remap = false, desc = "Format the document" })
     end)
 
@@ -91,6 +106,7 @@ return {
       mapping = {
         -- `Tab` key to confirm completion
         ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+        -- cmp.mapping.,
 
         -- `Enter` key to go scroll list
         ['<CR>'] = cmp.mapping.select_next_item(cmp_select),
@@ -99,5 +115,12 @@ return {
         ['<C-Space>'] = cmp.mapping.complete(),
       }
     })
+
+    -- some luasnip snipping
+    local ls = require("luasnip")
+    -- set up friendly snippets
+    require("luasnip.loaders.from_vscode").lazy_load()
+    vim.keymap.set({ "i" }, "<Tab>", function() ls.jump(1) end,
+      { silent = true, desc = "Jump forward when autocompleteing snippet" })
   end
 }
