@@ -97,15 +97,35 @@ return {
 
     lsp.setup()
 
+    -- helper used below
+    local has_words_before = function()
+      unpack = unpack or table.unpack
+      local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+      return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+    end
+
+
     -- need to setup `cmp` after lsp-zero
     local cmp = require('cmp')
+    local ls = require("luasnip")
     -- local cmp_action = require('lsp-zero').cmp_action()
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
     cmp.setup({
       mapping = {
         -- `Tab` key to confirm completion
-        ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+        ['<Tab>'] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.confirm({ select = true })
+          elseif ls.expand_or_locally_jumpable() then
+            ls.expand_or_jump()
+          else
+            -- enable this if you want tab to also try to autocomplete if your cursor after a non-space character
+            -- elseif has_words_before() then
+            --   cmp.complete()
+            fallback()
+          end
+        end, { "i", "s" }),
         -- cmp.mapping.,
 
         -- `Enter` key to go scroll list
@@ -116,11 +136,9 @@ return {
       }
     })
 
-    -- some luasnip snipping
-    local ls = require("luasnip")
     -- set up friendly snippets
     require("luasnip.loaders.from_vscode").lazy_load()
-    vim.keymap.set({ "i" }, "<Tab>", function() ls.jump(1) end,
-      { silent = true, desc = "Jump forward when autocompleteing snippet" })
+    -- vim.keymap.set({ "i" }, "<Tab>", function() ls.jump(1) end,
+    --   { silent = true, desc = "Jump forward when autocompleteing snippet" })
   end
 }

@@ -38,6 +38,13 @@
 --   end
 -- }
 
+-- return {
+--   "aaqsr/pumpkin",
+--   config = function ()
+--     vim.cmd("colorscheme pumpkin")
+--   end
+-- }
+
 return {
   "catppuccin/nvim",
   name = "catppuccin",
@@ -82,3 +89,4 @@ return {
     vim.cmd.colorscheme "catppuccin"
   end
 }
+
