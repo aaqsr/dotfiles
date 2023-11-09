@@ -12,6 +12,16 @@ return {
       },
       -- breadcrumbs in winbar
       winbar = {
+        lualine_z = {
+          function()
+            return [[𝜓]]
+          end
+        },
+        lualine_a = {
+          function ()
+            return [[loc:]]
+          end
+        },
         lualine_c = {
           {
             "navic",
