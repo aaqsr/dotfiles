@@ -19,7 +19,7 @@ return {
     -- General
     vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Search files in directory" })
     vim.keymap.set('n', '<leader>fG', builtin.live_grep, { desc = "Grep files in directory" })
-    vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Search open files" })
+    vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Search open files (buffers)" })
     vim.keymap.set('n', '<leader>fc', builtin.current_buffer_fuzzy_find, { desc = "Search currently open file" })
 
     -- Vim

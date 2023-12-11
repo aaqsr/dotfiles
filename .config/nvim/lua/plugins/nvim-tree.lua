@@ -3,7 +3,7 @@ return {
   config = function()
     require("nvim-tree").setup({
       view = {
-        width = 27,
+        width = 25,
       },
       renderer = {
         group_empty = true,
@@ -22,7 +22,7 @@ return {
         vim.keymap.set('n', '<BS>', api.tree.change_root_to_parent, opts('Go up dir'))
         vim.keymap.set('n', '<CR>', api.tree.change_root_to_node, opts('Go into dir'))
         -- vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
-      end
+      end,
     })
     vim.keymap.set('n', '<leader>e', vim.cmd.NvimTreeToggle, { desc = 'Open file explorer tree', silent = true })
   end

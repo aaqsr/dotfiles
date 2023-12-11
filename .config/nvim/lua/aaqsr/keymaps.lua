@@ -10,6 +10,7 @@ local term_opts = { silent = true } -- same for the terminal keybindings
 
 
 vim.keymap.set('n', '<Space>', '', opts) -- I don't remember why this is useful but I'm not deleting it
+vim.keymap.set('n', '<leader>w', ':w<CR>', opts_with_desc("Save file"))
 
 -- Movement keys respect line wraps
 vim.keymap.set("n", "j", "gj", opts)

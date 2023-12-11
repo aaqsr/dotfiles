@@ -5,7 +5,7 @@ return {
     require("nvim-navic")
     require('lualine').setup({
       options = {
-        theme = "catppuccin",
+        theme = vim.g.colors_name,
         -- I don't like the > angle separators
         section_separators = { left = '', right = '' },
         component_separators = { left = '', right = '' },

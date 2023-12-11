@@ -23,6 +23,9 @@ return {
       'L3MON4D3/LuaSnip',
       dependencies = { "rafamadriz/friendly-snippets" },
     }, -- Required
+
+    -- Clangd Extra Extra
+    { "p00f/clangd_extensions.nvim" }
   },
   config = function()
     -- set up breadcrumbs real quick (also see lua-line for more)
@@ -53,6 +56,11 @@ return {
     vim.keymap.set("n", "<leader>lm", vim.cmd.Mason, { silent = true, desc = "Open Mason (LSP manager)" })
 
     lsp.on_attach(function(client, bufnr)
+      -- clangd extensions
+      -- https://github.com/p00f/clangd_extensions.nvim
+      require("clangd_extensions.inlay_hints").setup_autocmd()
+      require("clangd_extensions.inlay_hints").set_inlay_hints()
+
       -- see :help lsp-zero-keybindings
       -- to learn the available actions
       -- lsp.default_keymaps({buffer = bufnr})
@@ -76,7 +84,12 @@ return {
         { buffer = bufnr, remap = false, desc = "Format the document" })
     end)
 
-    -- (Optional) Configure lua language server for neovim
+    -- whilst I am here, I might as well also set up format on save,
+    -- vim.cmd(
+    -- [[autocmd BufWritePre * silent lua
+    -- function() if vim.fn.exists(':IndentLinesToggle') > 0 then vim.cmd.LspZeroFormat() end ]])
+
+    -- Configure lua language server for neovim
     require('lspconfig').lua_ls.setup({
       settings = {
         Lua = {
@@ -103,7 +116,6 @@ return {
       local line, col = unpack(vim.api.nvim_win_get_cursor(0))
       return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
     end
-
 
     -- need to setup `cmp` after lsp-zero
     local cmp = require('cmp')
@@ -133,7 +145,20 @@ return {
 
         -- Ctrl+Space to trigger completion menu
         ['<C-Space>'] = cmp.mapping.complete(),
-      }
+      },
+
+      sorting = {
+        comparators = {
+          cmp.config.compare.offset,
+          cmp.config.compare.exact,
+          cmp.config.compare.recently_used,
+          require("clangd_extensions.cmp_scores"),
+          cmp.config.compare.kind,
+          cmp.config.compare.sort_text,
+          cmp.config.compare.length,
+          cmp.config.compare.order,
+        },
+      },
     })
 
     -- set up friendly snippets
