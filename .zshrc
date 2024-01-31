@@ -112,10 +112,24 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     alias chromium='open -a Google\ Chrome'
 
     # to set BROWSER to open google chrome properly
-    export BROWSER='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+    # export BROWSER='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+
+    # Arc doesn't work
+    # export BROWSER="open -a Arc "
+
+    # export BROWSER='/Applications/Safari.app/Contents/MacOS/Safari'
 
     # export llvm from brew
+    # export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
     export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+    LDFLAGS="-L/opt/homebrew/opt/llvm/lib/c++ -Wl,-rpath,/opt/homebrew/opt/llvm/lib/c++"
+
+    # For compilers to find llvm you may need to set:
+    export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+    export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+    # set c/c++ compiler to brew clang
+    export CC="/opt/homebrew/opt/llvm/bin/clang"
+    export CXX="/opt/homebrew/opt/llvm/bin/clang++"
 
     # finder
     alias finder="open"
@@ -266,3 +280,8 @@ alias clangdconfig="nvim ~/Library/Preferences/clangd/config.yaml"
 alias weather="curl wttr.in/"
 alias weather_uw="curl wttr.in/~waterloo+canada"
 alias forecast="curl wttr.in/"
+
+# For dotNET
+export DOTNET_CLI_TELEMETRY_OPTOUT=true
+export PATH=$PATH:$HOME/dotnet
+export DOTNET_ROOT=$HOME/dotnet

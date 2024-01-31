@@ -26,7 +26,7 @@
 --------------------------
 
 vim.g.mapleader = ' ' -- set leader
-vim.g.maplocalleader = ' ' -- set local leader 
+vim.g.maplocalleader = '\\' -- set local leader 
 
 -- disable netrw for nvim-tree
 -- vim.g.loaded_netrw = 1

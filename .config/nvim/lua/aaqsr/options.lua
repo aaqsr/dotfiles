@@ -27,12 +27,12 @@ local options = {
   laststatus = 3, -- global statusline, thanks Neovim team :-)
 
   tabstop = 2,
-  cindent = true, -- for C files, which I do not write right now.
+  cindent = true, -- for C files
   softtabstop = 2,
   smarttab = true,
   shiftwidth = 2,
   expandtab = true,  -- changing things so they make sense to me
-  shiftround = true, -- found out about this from VimTricks, you should check it out if you haven't already! https://vim.town/@vimtricks
+  shiftround = true, -- found out about this from VimTricks https://vim.town/@vimtricks
 
   ignorecase = true,
   smartcase = true,
