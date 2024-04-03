@@ -11,7 +11,7 @@
 % The basic LaTeX/TeX engine expects (or perhaps is meant to process) pure ASCII input,
 % whenever you use unicode (non ASCII) characters, you need to use the inputenc package,
 % see https://tex.stackexchange.com/questions/370278/is-there-any-reason-to-use-inputenc
-\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenx}
 % Set the margin away from that terrible built-in margin
 \usepackage[margin=1in]{geometry}
 
@@ -31,6 +31,9 @@
 
 % Symbols of Bra-ket Vectors of the form <a|b> and <a>
 \usepackage{braket}
+
+% The parskip package helps in implementing paragraph layouts where the paragraphs are separated by a vertical space instead of (or in addition to) indenting them.
+\usepackage{parskip}
 
 % Make links clickable but don't colour them
 \usepackage[hidelinks]{hyperref}
@@ -59,6 +62,8 @@
 
 % To draw cool diagrams
 \usepackage{tikz}
+% To draw trees easier
+\usepackage{forest}
 
 % Far more flexible when compared with enumerate
 % the option should make labels take up less horizontal space
@@ -70,16 +75,30 @@
 \SetKwInOut{Input}{Input}
 \SetKwInOut{Output}{Output}
 
-% Adjusts colours putting us in darkmode
+% colour time
 \usepackage{xcolor}
-\pagecolor[rgb]{0.11,0.11,0.11} %Background : almost black
-\color[rgb]{.9,.9,.9} %Font : an off-white
+
+% define darkmode colours 
+\definecolor{bgcolour}{rgb}{0.11,0.11,0.11} %Background : almost black
+\definecolor{txtcolour}{rgb}{0.9,0.9,0.9} %Font : an off-white
+
+% set page colours
+\pagecolor{bgcolour}
+\color{txtcolour}
+
+% Change margin for different parts of document
+\usepackage{changepage}
+%\begin{adjustwidth}{left amount}{right amount}
+% \lipsum[2]
+% \end{adjustwidth}
+% https://tex.stackexchange.com/questions/588/how-can-i-change-the-margins-for-only-part-of-the-text
 
 \setlength{\columnseprule}{0.5pt}
 \def\columnseprulecolor{\color{white}}
 
 % Stop indenting paragraphs please
-\setlength{\parindent}{0pt}
+% \setlength{\parindent}{0pt}
+% UPDATE: This might be done by parskip package instead now
 
 % LaTeX is a bit cramped, and I like 1.2 spacing.
 % At least it's not double spaced
@@ -156,6 +175,9 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\Q}{\mathbb{Q}}
 
+% partial derrivatives
+\newcommand{\del}{\partial}
+
 % Divides and doesn't divide
 \newcommand{\divs}{\mid}
 \newcommand{\ndivs}{\nmid}
@@ -186,8 +208,16 @@
 \renewcommand{\epsilon}{\varepsilon}
 
 % Floor and cieling
-\renewcommand{\floor}[1]{\lfloor #1 \rfloor}
+\newcommand{\floor}[1]{\lfloor #1 \rfloor}
 \newcommand{\ceil}[1]{\lceil #1 \rceil}
+
+% Pictures centered vertically in line
+\newcommand{\vcenteredinclude}[2]{\begingroup
+	\setbox0=\hbox{\includegraphics[#1]{#2}}%
+	\parb}
+
+% Norm ||x|| for topology
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
 % Title (what no way)
 \title{Assignment}
@@ -197,6 +227,9 @@
 % This lets you set headers over your pages
 % See more https://tex.stackexchange.com/questions/111320/how-to-print-the-section-name-without-the-section-number-in-a-fancyhdr-header
 \pagestyle{fancy}
+
+% so that fancyhead stops warning me about too little space
+\setlength{\headheight}{14.49998pt}
 
 %% This style sucked
 % \fancyhead{}% clear
@@ -213,6 +246,7 @@
 % Better than using \section*
 \usepackage{titlesec}
 \titleformat{\section}{\normalfont\Large\bfseries}{}{0pt}{}
+\titleformat{\subsection}{\normalfont\large\bfseries\itshape}{}{0pt}{}
 
 % Place each section on a new page.
 % Seems weird but assignments often need each question on a page by itself
@@ -222,7 +256,7 @@
 %%  EXAMPLE USE  %%
 %%%%%%%%%%%%%%%%%%%
 %
-% \input{common}
+% \input{path/to/common}
 %
 % \begin{document}
 %

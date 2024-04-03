@@ -285,3 +285,7 @@ alias forecast="curl wttr.in/"
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 export PATH=$PATH:$HOME/dotnet
 export DOTNET_ROOT=$HOME/dotnet
+
+# zoxide a better cd. run this after compinit
+#   alias it to cd
+eval "$(zoxide init --cmd cd zsh)"
