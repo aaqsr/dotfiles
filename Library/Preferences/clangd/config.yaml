@@ -52,6 +52,9 @@ CompileFlags:
       -std=c++20,
       -xc++,
       -fprebuilt-module-path=.,
+      -Wall,
+      -Wextra,
+      -Wpedantic
     ]
 
 Diagnostics:
