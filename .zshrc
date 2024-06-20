@@ -289,3 +289,6 @@ export DOTNET_ROOT=$HOME/dotnet
 # zoxide a better cd. run this after compinit
 #   alias it to cd
 eval "$(zoxide init --cmd cd zsh)"
+export PATH="/opt/homebrew/opt/llvm@15/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/llvm@15/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm@15/include"
