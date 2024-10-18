@@ -36,21 +36,24 @@ Hover:
 ---
 # Fragment specific to C source files
 If:
-  PathMatch: [.*\.c]
+  PathMatch: .*\.c
 
 CompileFlags:
   Add: [
         -std=c17,
+        -Wall,
+        -Wextra,
+        -Wpedantic
       ]
 ---
 # Fragment specific to C++ source files
 If:
-  PathExclude: [.*\.c]
+  PathMatch: [.*\.cc, .*\.cpp]
 
 CompileFlags:
   Add: [
       -std=c++20,
-      -xc++,
+      # -xc++,
       -fprebuilt-module-path=.,
       -Wall,
       -Wextra,

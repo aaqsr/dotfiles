@@ -292,3 +292,6 @@ eval "$(zoxide init --cmd cd zsh)"
 export PATH="/opt/homebrew/opt/llvm@15/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/llvm@15/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm@15/include"
+
+# add brew to pkg-config
+export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"

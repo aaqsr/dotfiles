@@ -35,9 +35,6 @@
 % The parskip package helps in implementing paragraph layouts where the paragraphs are separated by a vertical space instead of (or in addition to) indenting them.
 \usepackage{parskip}
 
-% Make links clickable but don't colour them
-\usepackage[hidelinks]{hyperref}
-
 % Used for long urls to stay within the margin
 \usepackage{xurl}
 
@@ -70,15 +67,48 @@
 \usepackage[shortlabels]{enumitem}
 
 % To render out pseudocode well
+% https://tug.ctan.org/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
-\DontPrintSemicolon
-\SetKwInOut{Input}{Input}
+\DontPrintSemicolon % \; marks the end of a line but don't print it
+% Also note that \BlankLine prints a blank line
+\SetKwProg{Fn}{}{ : }{} % function with Fn should have no prefix nor suffix % in order to display function name correctly, run \SetKwFunction{nameCmd}{funcName} to make \nameCmd generate a syntax highlighted function with name funcName
+\SetKwInOut{Input}{Input} % input and output
 \SetKwInOut{Output}{Output}
+\SetKw{None}{None} % make \None a keyword
+\SetKw{True}{True} % make \True a keyword
+\SetKw{False}{False} % make \False a keyword
+\SetNoFillComment % comment with \tcc will look like /* aslkdja */ instead of placing */ at very end
+
+% To render and syntax highlight real code well too
+\usepackage{listings}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset { %
+	frame=tb,
+	language=[11]C++,
+	aboveskip=3mm,
+	belowskip=0mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\bfseries,
+	commentstyle=\itshape\color{gray},
+	stringstyle=\itshape\color{darkgray},
+	directivestyle=\bfseries\itshape\color{darkgray},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=2
+}
+
+% Get rid of >> and << turning into ugly ligatures in listings
+\usepackage{microtype}
+\DisableLigatures[>,<]{encoding = T1,family=tt*}
 
 % colour time
 \usepackage{xcolor}
 
-% define darkmode colours 
+% define darkmode colours
 \definecolor{bgcolour}{rgb}{0.11,0.11,0.11} %Background : almost black
 \definecolor{txtcolour}{rgb}{0.9,0.9,0.9} %Font : an off-white
 
@@ -104,6 +134,10 @@
 % At least it's not double spaced
 \usepackage{setspace}
 \setstretch{1.2}
+
+% Make links clickable but don't colour them
+% Note: You should load setspace before hyperref
+\usepackage[hidelinks]{hyperref}
 
 \pagenumbering{gobble}
 
@@ -218,6 +252,25 @@
 
 % Norm ||x|| for topology
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+% Add scoped colour to math text with correct spacing
+% From https://tex.stackexchange.com/questions/21598/how-to-color-math-symbols
+\makeatletter % make the @ symbol just another letter
+\def\mathcolour#1#{\@mathcolour{#1}} % helper function
+\def\@mathcolour#1#2#3{% 
+	\protect\leavevmode
+	\begingroup
+	\color#1{#2}#3 % add colour to text in group environment for correct spacing
+	\endgroup
+}
+\makeatother
+
+% Create a nice large red box that screams "YOU LEFT THIS TODO"
+% From https://tex.stackexchange.com/questions/208128/how-to-make-an-empty-box
+\newcommand{\TODO}{\mathcolor{red}{
+		\raisebox{-5.5\unitlength}{
+			\framebox(20,20){}}
+	}}
 
 % Title (what no way)
 \title{Assignment}
