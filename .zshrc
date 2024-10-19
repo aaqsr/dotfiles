@@ -7,7 +7,7 @@ autoload -U colors && colors
 autoload -U promptinit; promptinit
 # Using the powerline at https://github.com/denysdovhan/spaceship-prompt
 # Dont forget to run "npm install -g spaceship-prompt"
-prompt spaceship
+# prompt spaceship
 
 # Make it print out the whole path
 SPACESHIP_DIR_TRUNC=0
@@ -142,7 +142,8 @@ fi
 
 # linux only:
 if [[ $OSTYPE == "linux"* ]]; then
-    export BROWSER=chromium
+    source "$HOME/.zsh/spaceship/spaceship.zsh"
+    # export BROWSER=chromium
 fi
 
 
@@ -168,13 +169,14 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # for highlighting requires zsh-syntax-highlighting
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # https://github.com/zsh-users/zsh-syntax-highlighting
-source /opt/homebrew/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /opt/homebrew/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # for auto-suggestions Requires zsh-autosuggestions
 # just install it via brew 
 # brew install zsh-autosuggestions
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # for prompt: starship
 # eval "$(starship init zsh)"
@@ -234,7 +236,7 @@ alias nvims=nvim-switch
 # Java moment
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 
 # >>> JVM installed by coursier >>>
 export JAVA_HOME="/Users/aaqsr/Library/Caches/Coursier/arc/https/github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10/OpenJDK8U-jdk_x64_mac_hotspot_8u292b10.tar.gz/jdk8u292-b10/Contents/Home"
@@ -244,7 +246,7 @@ export JAVA_HOME="/Users/aaqsr/Library/Caches/Coursier/arc/https/github.com/Adop
 export PATH="$PATH:/Users/aaqsr/Library/Application Support/Coursier/bin"
 # <<< coursier install directory <<<
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# eval "$(/opt/homebrew/bin/brew shellenv)"
 
 ##
 # Your previous /Users/aaqsr/.zprofile file was backed up as /Users/aaqsr/.zprofile.macports-saved_2022-03-25_at_16:15:53
@@ -295,3 +297,6 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm@15/include"
 
 # add brew to pkg-config
 export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+# opam configuration
+[[ ! -r /home/aaqsr/.opam/opam-init/init.zsh ]] || source /home/aaqsr/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
