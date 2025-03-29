@@ -26,6 +26,9 @@
 % (you don't need amsmath with mathtools but eh)
 \usepackage{amsmath, amsfonts, amssymb, amsthm, mathtools}
 
+% More symbols, use \mathscr{B} for example
+\usepackage{mathrsfs}
+
 % Lets you write inline codestyle with \verb|a|
 \usepackage{verbatim}
 
@@ -69,6 +72,14 @@
 % To render out pseudocode well
 % https://tug.ctan.org/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+
+% utility commands to turn on and off algorithm numbering
+\makeatletter
+\newcommand{\RemoveAlgoNumber}{\renewcommand{\fnum@algocf}{\AlCapSty{\AlCapFnt\algorithmcfname}}}
+\newcommand{\RevertAlgoNumber}{\algocf@resetfnum}
+\makeatother
+
+\RemoveAlgoNumber % please don't number the algorithms, I'd rather do that myself with \label{} and \ref{} with \caption{}
 \DontPrintSemicolon % \; marks the end of a line but don't print it
 % Also note that \BlankLine prints a blank line
 \SetKwProg{Fn}{}{ : }{} % function with Fn should have no prefix nor suffix % in order to display function name correctly, run \SetKwFunction{nameCmd}{funcName} to make \nameCmd generate a syntax highlighted function with name funcName
@@ -113,8 +124,8 @@
 \definecolor{txtcolour}{rgb}{0.9,0.9,0.9} %Font : an off-white
 
 % set page colours
-\pagecolor{bgcolour}
-\color{txtcolour}
+% \pagecolor{bgcolour}
+% \color{txtcolour}
 
 % Change margin for different parts of document
 \usepackage{changepage}
@@ -149,12 +160,17 @@
 %% CUSTOM COMMANDS
 
 % Much easier equation alignment environment
+% \newcommand{\e}[1]{
+% 	\begin{equation*}
+% 		\begin{split}
+% 			#1
+% 		\end{split}
+% 	\end{equation*}
+% }
 \newcommand{\e}[1]{
-	\begin{equation*}
-		\begin{split}
+	\begin{align*}
 			#1
-		\end{split}
-	\end{equation*}
+	\end{align*}
 }
 
 % Piecewise functions!
@@ -211,6 +227,8 @@
 
 % partial derrivatives
 \newcommand{\del}{\partial}
+\newcommand{\pd}[2]{\frac{\del #1}{\del #2}}
+\newcommand{\hess}{\text{Hess }}
 
 % Divides and doesn't divide
 \newcommand{\divs}{\mid}

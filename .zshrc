@@ -7,7 +7,7 @@ autoload -U colors && colors
 autoload -U promptinit; promptinit
 # Using the powerline at https://github.com/denysdovhan/spaceship-prompt
 # Dont forget to run "npm install -g spaceship-prompt"
-# prompt spaceship
+prompt spaceship
 
 # Make it print out the whole path
 SPACESHIP_DIR_TRUNC=0
@@ -92,7 +92,7 @@ man() {
 
 # ls
 # l for more detail, a for all files even hidden ones, and h for headings; git for some git info
-alias ls='exa -lah --git'
+alias ls='eza -lah --git'
 
 # search through text files in a directory using rip-grep
 alias search='rg -S' # some string, some directory
@@ -169,9 +169,13 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # for highlighting requires zsh-syntax-highlighting
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [[ $OSTYPE == "linux"* ]]; then
+  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 # https://github.com/zsh-users/zsh-syntax-highlighting
+if [[ "$OSTYPE" == "darwin"* ]]; then
 # source /opt/homebrew/Cellar/zsh-syntax-highlighting/0.7.1/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 # for auto-suggestions Requires zsh-autosuggestions
 # just install it via brew 
@@ -300,3 +304,10 @@ export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # opam configuration
 [[ ! -r /home/aaqsr/.opam/opam-init/init.zsh ]] || source /home/aaqsr/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  # Coq Path
+  export PATH="/Applications/CoqIDE_8.10.2.app/Contents/Resources/bin:$PATH"
+fi
+
+export PATH=/opt/homebrew/Cellar/cling/1.2/bin:$PATH
