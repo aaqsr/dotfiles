@@ -311,3 +311,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 export PATH=/opt/homebrew/Cellar/cling/1.2/bin:$PATH
+export PATH=/opt/homebrew/Cellar/:$PATH
+export PATH=~/verible/bin:$PATH
+export PATH=~/prog/synlig:$PATH
+export PATH=/Applications/IINA.app/Contents/MacOS:$PATH

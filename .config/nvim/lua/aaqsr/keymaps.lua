@@ -61,5 +61,11 @@ vim.keymap.set("n", "N", "nzzzv", opts)       --
 vim.keymap.set("n", "<leader>L", "<cmd>Lazy<cr>", { silent = true, desc = "Open Lazy plugin manager" })
 
 -- Buffers
-vim.keymap.set("n", "<leader>[", vim.cmd.bprev, { desc = "Previous buffer" })
-vim.keymap.set("n", "<leader>]", vim.cmd.bnext, { desc = "Next buffer" })
+vim.keymap.set("n", "<leader>{", vim.cmd.bprev, { desc = "Previous buffer" })
+vim.keymap.set("n", "<leader>}", vim.cmd.bnext, { desc = "Next buffer" })
+
+-- Jumps
+-- vim.keymap.set("n", "<C-[>", "<C-o>", { desc = "Previous jump position" })
+-- vim.keymap.set("n", "<C-]>", "<C-i>", { desc = "Next jump position" })
+vim.keymap.set("n", "<leader>[", "<C-o>", { desc = "Previous jump position" })
+vim.keymap.set("n", "<leader>]", "<C-i>", { desc = "Next jump position" })

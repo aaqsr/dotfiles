@@ -87,7 +87,7 @@ IncludeIsMainSourceRegex: ''
 IndentCaseLabels: true
 IndentGotoLabels: false
 IndentPPDirectives: None
-IndentWidth:     2
+IndentWidth:     4
 IndentWrappedFunctionNames: false
 JavaScriptQuotes: Leave
 JavaScriptWrapImports: true

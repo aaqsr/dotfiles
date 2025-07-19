@@ -1,6 +1,11 @@
 local options = {
   clipboard = 'unnamedplus', -- always use clipboard for all operations
-  conceallevel = 0,          -- show text normally
+  -- conceallevel = 0,          -- show text normally
+  conceallevel = 1,          -- Each block of concealed text is replaced with one
+                             -- character.  If the syntax item does not have a custom
+                             -- replacement character defined (see :syn-cchar) the
+                             -- character defined in 'listchars' is used.
+
   fileencoding = 'utf-8',    -- file encoding for current buffer
 
   hlsearch = false,          -- don't highlight matches
