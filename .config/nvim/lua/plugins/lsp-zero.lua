@@ -68,7 +68,9 @@ return {
       vim.keymap.set("n", "<leader>ld", function() vim.lsp.buf.definition() end,
         { buffer = bufnr, remap = false, desc = "Go to definition (also on gd)" })
       vim.keymap.set("n", "<leader>le", function() vim.diagnostic.open_float() end,
-        { buffer = bufnr, remap = false, desc = "Show errors" })
+        { buffer = bufnr, remap = false, desc = "Show error details" })
+      vim.keymap.set("n", "<leader>lE", function() require('telescope.builtin').diagnostics({ severity_bound = 0 }) end,
+          buffer = bufnr, remap = false, desc = "Show all errors" })
       vim.keymap.set("n", "<leader>lR", function() vim.lsp.buf.references() end,
         { buffer = bufnr, remap = false, desc = "Open references to object" })
       vim.keymap.set("n", "<leader>lr", function() vim.lsp.buf.rename() end,
