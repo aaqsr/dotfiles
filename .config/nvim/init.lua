@@ -64,9 +64,6 @@ require("lazy").setup('plugins', opts)
 --------------------------
 -- Just some keymap documentation that needs to be updated after plugins
 local wk = require("which-key")
-wk.register({
-  ["<leader>w"] = {
-    name = "+Window"
-  }
+wk.add({
+    { "<leader>w", group = "Window" }
 })
-

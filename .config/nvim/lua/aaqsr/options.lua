@@ -31,11 +31,11 @@ local options = {
   signcolumn = 'yes',    -- show signs in signcolumn
   laststatus = 3, -- global statusline, thanks Neovim team :-)
 
-  tabstop = 2,
+  tabstop = 4,
   cindent = true, -- for C files
-  softtabstop = 2,
+  softtabstop = 4,
   smarttab = true,
-  shiftwidth = 2,
+  shiftwidth = 4,
   expandtab = true,  -- changing things so they make sense to me
   shiftround = true, -- found out about this from VimTricks https://vim.town/@vimtricks
 

@@ -22,7 +22,7 @@ SPACESHIP_NODE_SHOW=false
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
-export HISTFILE=~/.cache/.zsh_history
+export HISTFILE=$HOME/.cache/.zsh_history
 
 # Adding timestamps and Appending History Immediately
 setopt EXTENDED_HISTORY
@@ -312,6 +312,17 @@ fi
 
 export PATH=/opt/homebrew/Cellar/cling/1.2/bin:$PATH
 export PATH=/opt/homebrew/Cellar/:$PATH
-export PATH=~/verible/bin:$PATH
-export PATH=~/prog/synlig:$PATH
+export PATH=$HOME/verible/bin:$PATH
+export PATH=$HOME/prog/synlig:$PATH
 export PATH=/Applications/IINA.app/Contents/MacOS:$PATH
+
+export VCPKG_ROOT="$HOME/vcpkg"
+
+# bun completions
+[ -s "/Users/aaqsr/.bun/_bun" ] && source "/Users/aaqsr/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+export PATH="$HOME/Library/Python/3.9/bin:$PATH"

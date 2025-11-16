@@ -4,17 +4,18 @@ CompileFlags:
         -Wall,
         -I.,
         -ferror-limit=0,
-        -fstack-protector-strong,
+        -fstack-protector-strong
       ]
 
 Index:
   Background: Build
-  StandardLibrary: Yes
+  StandardLibrary: true
 
 Diagnostics:
   ClangTidy:
     Add: [
     # https://clang.llvm.org/extra/clang-tidy/checks/list.html
+      clang-analyzer*,
       performance*,
       readability*,
       modernize*,
@@ -22,7 +23,7 @@ Diagnostics:
       concurrency*,
       darwin*,
       misc*, # this one's a lilttle suspect
-      portability*,
+      portability*
       ]
     Remove: [
       modernize-use-trailing-return-type,
@@ -64,12 +65,12 @@ Diagnostics:
   ClangTidy:
     Add: [
     # https://clang.llvm.org/extra/clang-tidy/checks/list.html
-      cppcoreguidelines*,
+      cppcoreguidelines*
       ]
     Remove: [
       cppcoreguidelines-owning-memory,
       cppcoreguidelines-pro-bounds-pointer-arithmetic, # do not use ptr arithmetic bruh
-      cppcoreguidelines-avoid-magic-numbers, # nAmEd CoNsTanT
+      cppcoreguidelines-avoid-magic-numbers # nAmEd CoNsTanT
       ]
 
 

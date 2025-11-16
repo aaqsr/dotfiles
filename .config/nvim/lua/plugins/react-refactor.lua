@@ -1,19 +1,15 @@
 return {
-  "napmn/react-extract.nvim",
-  config = function ()
-    require("react-extract").setup()
+    "napmn/react-extract.nvim",
+    config = function()
+        require("react-extract").setup()
 
-    local wk = require("which-key")
-    wk.register({
-      ["<leader>l"] = {
-        name = "+LSP",
-        r = "React"
-      }
-    }, {
-        mode = "v"
-      })
+        local wk = require("which-key")
 
-    vim.keymap.set({ "v" }, "<Leader>lre", require("react-extract").extract_to_new_file, { desc = "Extract component to new file"})
-    vim.keymap.set({ "v" }, "<Leader>lrc", require("react-extract").extract_to_current_file, { desc = "Extract component to same file"})
-  end
+        wk.add({ { "<leader>lr", desc = "React", mode = "v" } })
+
+        vim.keymap.set({ "v" }, "<Leader>lre", require("react-extract").extract_to_new_file,
+            { desc = "Extract component to new file" })
+        vim.keymap.set({ "v" }, "<Leader>lrc", require("react-extract").extract_to_current_file,
+            { desc = "Extract component to same file" })
+    end
 }
