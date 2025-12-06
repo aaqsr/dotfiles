@@ -2,9 +2,7 @@
 
 A few of my dotfiles for configs on MacOS/Linux.
 
-Shamelessly using this node script https://github.com/mmellado/dotfiles-sync
-
-TODO: Make it not rely on the node script
+Based on the technique described by https://www.atlassian.com/git/tutorials/dotfiles
 
 Install with 
 ```sh
@@ -14,9 +12,3 @@ curl https://raw.githubusercontent.com/aaqsr/dotfiles/master/setup.sh >> setup.s
 ```
 in your home directory.
 
-# TODO:
-
-- Fix the script, it's broken
-```
-Error: TypeError: status.split is not a function
-```

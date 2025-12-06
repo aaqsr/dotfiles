@@ -17,7 +17,6 @@ return {
         "typescript",
         "html",
         "rust",
-        "scala",
         "racket",
         "bash",
         "python",

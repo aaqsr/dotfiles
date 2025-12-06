@@ -326,3 +326,8 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 export PATH="$HOME/Library/Python/3.9/bin:$PATH"
+
+
+# obsidian vault todo/tasks
+alias todo="nvim $HOME/Documents/Obsidian\ Vault/Main\ Vault/Tasks.md"
+alias tasks=todo

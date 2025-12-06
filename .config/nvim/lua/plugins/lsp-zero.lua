@@ -81,11 +81,6 @@ return {
                 { buffer = bufnr, remap = false, desc = "Format the document" })
         end)
 
-        -- whilst I am here, I might as well also set up format on save,
-        -- vim.cmd(
-        -- [[autocmd BufWritePre * silent lua
-        -- function() if vim.fn.exists(':IndentLinesToggle') > 0 then vim.cmd.LspZeroFormat() end ]])
-
         -- Configure lua language server for neovim
         require('lspconfig').lua_ls.setup({
             settings = {
@@ -281,5 +276,24 @@ return {
         require("luasnip.loaders.from_vscode").lazy_load()
         -- vim.keymap.set({ "i" }, "<Tab>", function() ls.jump(1) end,
         --   { silent = true, desc = "Jump forward when autocompleteing snippet" })
+
+        vim.diagnostic.Opts = {
+            update_in_insert = true
+        }
+
+        -- for bacon-ls
+        vim.lsp.config('bacon-ls', {
+            init_options = {
+                updateOnSave = true,
+                updateOnSaveWaitMillis = 1000
+            }
+        })
+        -- bacon-ls does not like rust_analyzer
+        vim.lsp.config('rust_analyzer', {
+            opts = {
+                checkOnSave = false,
+                diagnostics = false
+            }
+        })
     end
 }
