@@ -32,13 +32,6 @@ export HISTTIMEFORMAT="[%F %T] "
 # Remove duplicates when going up in terminal
 setopt HIST_FIND_NO_DUPS
 
-# Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)		# Include hidden files.
-
 # vi mode
 bindkey -v
 export KEYTIMEOUT=1
@@ -223,7 +216,7 @@ alias neofetch='neofetch --ascii_distro arch'
 alias nvim-old="NVIM_APPNAME=nvim-old nvim"
 
 function nvim-switch() {
-  items=("default" "nvim-old" "nvim-avish" "pure")
+  items=("default" "nvim-old2" "nvim-old" "nvim-avish" "pure")
   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
   if [[ -z $config ]]; then
     echo "Nothing selected"
@@ -327,7 +320,33 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 export PATH="$HOME/Library/Python/3.9/bin:$PATH"
 
-
 # obsidian vault todo/tasks
 alias todo="nvim $HOME/Documents/Obsidian\ Vault/Main\ Vault/Tasks.md"
 alias tasks=todo
+
+
+# Should stay closer to the bottom to be setup correctly
+# Basic auto/tab complete:
+autoload -U compinit
+zstyle ':completion:*' menu select
+
+# From https://thevaluable.dev/zsh-completion-guide-examples/
+zstyle ':completion:*' completer _extensions _complete _ignored _approximate
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+
+# From https://unix.stackexchange.com/a/214699
+# Colour completion for some things.
+# http://linuxshellaccount.blogspot.com/2008/12/color-completion-using-zsh-modules-on.html
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# formatting and messages
+# http://www.masterzen.fr/2009/04/19/in-love-with-zsh-part-one/
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*:descriptions' format "$fg[yellow]%B--- %d%b"
+zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:warnings' format "$fg[red]No matches for:$reset_color %d"
+zstyle ':completion:*:corrections' format '%B%d (errors: %e)%b'
+zstyle ':completion:*' group-name ''
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots)		# Include hidden files.

@@ -12,3 +12,7 @@ curl https://raw.githubusercontent.com/aaqsr/dotfiles/master/setup.sh >> setup.s
 ```
 in your home directory.
 
+# TODO
+
+- [ ] Update and clean up `.zshrc`.
+- [ ] Rewrite neovim config. See `.config/nvim-new-WIP/goals.md`
