@@ -31,11 +31,16 @@ return {
         vim.keymap.set('n', '<leader>flr', builtin.lsp_references, { desc = "Search references to object" })
         vim.keymap.set('n', '<leader>fld', builtin.lsp_definitions, { desc = "Search definitions of object" })
         vim.keymap.set('n', '<leader>flr', builtin.lsp_implementations, { desc = "Search implementations of object" })
+        vim.keymap.set("n", "<leader>lE", function() builtin.diagnostics({ bufnr = 0, severity_bound = 0 }) end,
+            { -- bufnr = 0 for the current lsp buffer
+                desc = "Show all errors"
+            })
 
         -- Git
         vim.keymap.set('n', '<leader>fgc', builtin.git_bcommits, { desc = "Search commits of this buffer" })
         vim.keymap.set('n', '<leader>fgf', builtin.git_files, { desc = "Search files in repo" })
         vim.keymap.set('n', '<leader>fgs', builtin.git_status, { desc = "Git status" })
+        vim.keymap.set('n', '<leader>fgb', builtin.git_branches, { desc = "Search git branches" })
 
         -- local actions = require('telescope.actions')
         local tele = require('telescope')

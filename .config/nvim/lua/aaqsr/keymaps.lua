@@ -1,5 +1,5 @@
 --------------------------
--- KEYMAPS
+-- NON-PLUGIN KEYMAPS
 --------------------------
 
 local opts = { silent = true } -- i don't want to have to write these after every keymap
@@ -10,7 +10,6 @@ local term_opts = { silent = true } -- same for the terminal keybindings
 
 
 vim.keymap.set('n', '<Space>', '', opts) -- I don't remember why this is useful but I'm not deleting it
-vim.keymap.set('n', '<leader>w', ':w<CR>', opts_with_desc("Save file"))
 
 -- Movement keys respect line wraps
 vim.keymap.set("n", "j", "gj", opts)
@@ -56,9 +55,6 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz", opts) -- keep cursor in middle of screen
 vim.keymap.set("n", "<C-u>", "<C-u>zz", opts) -- keep cursor in middle of screen when i move up
 vim.keymap.set("n", "n", "nzzzv", opts)       --
 vim.keymap.set("n", "N", "nzzzv", opts)       --
-
--- Lazy
-vim.keymap.set("n", "<leader>L", "<cmd>Lazy<cr>", { silent = true, desc = "Open Lazy plugin manager" })
 
 -- Buffers
 vim.keymap.set("n", "<leader>{", vim.cmd.bprev, { desc = "Previous buffer" })

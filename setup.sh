@@ -40,7 +40,7 @@ method before proceeding,
         - npm           (for zsh prompt)
         - nodejs        (for zsh prompt)
     - neovim        (optional)
-
+        - rust/cargo(optional)
 EOF
 
 if ! confirm "Have you installed the dependencies?"; then
