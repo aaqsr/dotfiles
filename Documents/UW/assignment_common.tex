@@ -150,11 +150,14 @@
 % Note: You should load setspace before hyperref
 \usepackage[hidelinks]{hyperref}
 
-\pagenumbering{gobble}
+% For logic/type theory's natural deduction proofs.
+% See the following for a guide on usage:
+% https://www.logicmatters.net/resources/pdfs/latex/BussGuide2.pdf
+\usepackage{bussproofs}
 
+\pagenumbering{gobble}
 \theoremstyle{remark}
 \newtheorem{prp}{Proposition}
-
 \newtheorem{claim}{Claim}
 
 %% CUSTOM COMMANDS
@@ -325,6 +328,32 @@
 % Place each section on a new page.
 % Seems weird but assignments often need each question on a page by itself
 \AddToHook{cmd/section/before}{\clearpage}
+
+% Define a new environment for landscape pages in between normal documents
+%   (or portrait pages in between landscape documents)
+\newenvironment{rotatedpage}
+{%
+  % Begin environment: swap width and height
+  \newpage
+  \paperwidth=\pdfpageheight
+  \paperheight=\pdfpagewidth
+  \pdfpageheight=\paperheight
+  \pdfpagewidth=\paperwidth
+  \headwidth=\textheight
+  \begingroup
+  \vsize=\textwidth
+  \hsize=\textheight
+}
+{%
+  % End environment: restore normal page dimensions
+  \endgroup
+  \newpage
+  \paperwidth=\pdfpageheight
+  \paperheight=\pdfpagewidth
+  \pdfpageheight=\paperheight
+  \pdfpagewidth=\paperwidth
+  \headwidth=\textwidth
+}
 
 %%%%%%%%%%%%%%%%%%%
 %%  EXAMPLE USE  %%

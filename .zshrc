@@ -165,7 +165,6 @@ export PATH="$PATH:/$HOME/prog/flutter/bin"
 # for Android Debug Bridge
 export PATH="$PATH:/$HOME/prog/platform-tools"
 
-[ -f "/Users/aaqsr/.ghcup/env" ] && source "/Users/aaqsr/.ghcup/env" # ghcup-env
 export PATH="$PATH:$HOME/.local/bin"
 
 # export STACK_YAML="$HOME/.config/stack.yaml"
@@ -350,3 +349,7 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
+[ -f "/Users/aaqsr/.ghcup/env" ] && . "/Users/aaqsr/.ghcup/env" # ghcup-env
+export PATH="$HOME/.cabal/bin:$PATH"
+
+export PATH=/usr/local/smlnj/bin:"$PATH"

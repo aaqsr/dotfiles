@@ -46,8 +46,28 @@ return {
         })
 
 
+        -- Disable logs
+        -- TODO: MUST FIX: "lsp client log is large" where the lsp client log just grows on and on (to over 10GiB!)
+        -- Till then, logs are off
+        vim.lsp.set_log_level("off")
+
+        -- Enable lsps
         local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-        local server_list = require("constants.lsp_server_list")
+
+        local mason_server_list = require("constants.lsp_server_list")
+        -- extra servers that are installed manually and not via mason,
+        local non_mason_server_list = {
+            "racket_langserver"
+        }
+
+        local server_list = {}
+        for _, v in ipairs(mason_server_list) do
+            table.insert(server_list, v)
+        end
+        for _, v in ipairs(non_mason_server_list) do
+            table.insert(server_list, v)
+        end
+
         vim.lsp.config("*", {
             capabilities = cmp_capabilities
         })
@@ -80,7 +100,6 @@ return {
             cmd = {
                 "clangd",
                 "--clang-tidy",
-                "--log=verbose",
                 "--background-index",
             },
         })
