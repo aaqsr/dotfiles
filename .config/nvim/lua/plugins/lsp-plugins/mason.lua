@@ -17,5 +17,9 @@ return {
             },
             "neovim/nvim-lspconfig",
         },
+        registries = {
+            "github:mason-org/mason-registry",
+            "github:Crashdummyy/mason-registry",
+        },
     }
 }

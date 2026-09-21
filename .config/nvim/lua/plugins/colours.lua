@@ -44,8 +44,9 @@ local _catpuccin = {
 
   config = function()
     require("catppuccin").setup({
-      flavour = "frappe",
-      transparent_background = true,
+      flavour = "frappe", -- dark version
+      -- flavour = "latte", -- light version (absolute garbage sadly)
+      transparent_background = false,
       integrations = {
         cmp = true,
         gitsigns = true,
@@ -71,7 +72,7 @@ local _catpuccin = {
             information = { "underline" },
           },
           inlay_hints = {
-            background = true,
+            background = false,
           },
         },
         which_key = true,

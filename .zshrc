@@ -249,7 +249,9 @@ alias forecast="curl wttr.in/"
 # For dotNET
 export DOTNET_CLI_TELEMETRY_OPTOUT=true
 export PATH=$PATH:$HOME/dotnet
-export DOTNET_ROOT=$HOME/dotnet
+# export DOTNET_ROOT=$HOME/dotnet
+export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
+export PATH="$PATH:$DOTNET_ROOT"
 
 # zoxide a better cd. run this after compinit
 #   alias it to cd
@@ -353,3 +355,14 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 export PATH="$HOME/.cabal/bin:$PATH"
 
 export PATH=/usr/local/smlnj/bin:"$PATH"
+
+# add mason from neovim's LSP servers onto PATH
+export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
+
+# just for CS 444
+export JOOSC_STDLIB="$HOME/Documents/UW/CS 444/compiler/tests/test_programs/stdlib/5.0/"
+
+# verilator 4.210
+export PATH="$HOME/.local/verilator/4.210/bin:$PATH"
+# macos AR does not support @file syntax
+export AR=/opt/homebrew/opt/llvm@15/bin/llvm-ar

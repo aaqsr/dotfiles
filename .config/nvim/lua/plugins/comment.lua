@@ -10,5 +10,10 @@ return {
         line = "<leader>/"
       }
     })
+
+    local ft = require('Comment.ft')
+
+    -- comment string for SML
+    ft.set('sml', {'(* %s *)', '(* %s *)'})
   end
 }

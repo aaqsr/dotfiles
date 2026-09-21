@@ -20,7 +20,7 @@ return {
             map_with_desc("n", "<leader>le", vim.diagnostic.open_float, "Show error details")
             map_with_desc("n", "<leader>lR", vim.lsp.buf.references,    "Open references to object")
             map_with_desc("n", "<leader>lr", vim.lsp.buf.rename,        "Rename symbol")
-            map_with_desc("n", "<leader>la", vim.lsp.buf.code_action,   "Show code actions")
+            map_with_desc({"n", "v"}, "<leader>la", vim.lsp.buf.code_action,   "Show code actions")
             map_with_desc("n", "<leader>lf", vim.lsp.buf.format,        "Format the document")
             ---@format enable
 
@@ -49,7 +49,7 @@ return {
         -- Disable logs
         -- TODO: MUST FIX: "lsp client log is large" where the lsp client log just grows on and on (to over 10GiB!)
         -- Till then, logs are off
-        vim.lsp.set_log_level("off")
+        vim.lsp.log.set_level("off")
 
         -- Enable lsps
         local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()

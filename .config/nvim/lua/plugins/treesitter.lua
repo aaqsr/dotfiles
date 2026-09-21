@@ -58,6 +58,15 @@
 
 
 -- new treesitter
+
+-- filetypes we do not want treesitter's parser for
+local disabled_ft = {
+    -- latex highlighting is controlled much better by vimtex
+    tex = true,
+    plaintex = true,
+    latex = true,
+}
+
 local selection_object = function(keys, query_string, query_group, description)
     return {
         keys,
@@ -109,6 +118,10 @@ return {
                     vim.api.nvim_create_autocmd({ "FileType" }, {
                         pattern = filetypes,
                         callback = function(event)
+                            local ft = vim.bo[event.buf].filetype
+                            if disabled_ft[ft] then
+                                return
+                            end
                             vim.treesitter.start(event.buf, parser)
                         end,
                     })
@@ -123,6 +136,10 @@ return {
 
                     -- Skip if no filetype
                     if filetype == "" then
+                        return
+                    end
+
+                    if disabled_ft[filetype] then
                         return
                     end
 
